@@ -192,9 +192,6 @@ public abstract class Car {
 	}
 
 	public void crunch() {
-		if(this instanceof MarioCar && ((MarioCar) this).getExtraLifes() != 0) {
-			((MarioCar) this).decrease();
-		} else
 		this.crunched = true;
 		this.speed = 0;
 	}
