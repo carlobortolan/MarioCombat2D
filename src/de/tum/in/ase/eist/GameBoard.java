@@ -214,8 +214,15 @@ public class GameBoard {
 				this.audioPlayer.playCrashSound();
 
 				// TODO Backlog Item 11: The loser car is crunched and stops driving
-
+				loser.crunch();
 				// TODO Backlog Item 11: The player gets notified when he looses or wins the game
+				if(player.getCar().equals(winner) && this.getLoserCars().size() == this.getCars().size()-1) {
+					System.out.println("The player has won the game!");
+					this.gameOutcome = GameOutcome.WON;
+				} else if(player.getCar().equals(loser)) {
+					System.out.println("The player has lost the game!");
+					this.gameOutcome = GameOutcome.LOST;
+				}
 				/*
 				 * Hint: you should set the attribute gameOutcome accordingly. Use 'isWinner()'
 				 * below for your implementation
