@@ -7,6 +7,7 @@ import de.tum.in.ase.eist.audio.AudioPlayerInterface;
 import de.tum.in.ase.eist.car.Car;
 import de.tum.in.ase.eist.car.FastCar;
 import de.tum.in.ase.eist.car.SlowCar;
+import de.tum.in.ase.eist.car.MarioCar;
 import de.tum.in.ase.eist.collision.Collision;
 import de.tum.in.ase.eist.collision.DefaultCollision;
 
@@ -18,6 +19,7 @@ public class GameBoard {
 
 	private static final int NUMBER_OF_SLOW_CARS = 5;
 	private static final int NUMBER_OF_TESLA_CARS = 2;
+	private static final int NUMBER_OF_MARIO_CARS = 2;
 
 	/**
 	 * List of all active cars, does not contain player car.
@@ -78,6 +80,9 @@ public class GameBoard {
 		}
 		for (int i = 0; i < NUMBER_OF_TESLA_CARS; i++) {
 			this.cars.add(new FastCar(this.size));
+		}
+		for (int i = 0; i < NUMBER_OF_MARIO_CARS; i++) {
+			this.cars.add(new MarioCar(this.size));
 		}
 	}
 
