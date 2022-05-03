@@ -17,9 +17,9 @@ import de.tum.in.ase.eist.collision.DefaultCollision;
  */
 public class GameBoard {
 
-	private static final int NUMBER_OF_SLOW_CARS = 5;
+	private static final int NUMBER_OF_SLOW_CARS = 1;
 	private static final int NUMBER_OF_TESLA_CARS = 2;
-	private static final int NUMBER_OF_MARIO_CARS = 2;
+	private static final int NUMBER_OF_MARIO_CARS = 0;
 
 	/**
 	 * List of all active cars, does not contain player car.
