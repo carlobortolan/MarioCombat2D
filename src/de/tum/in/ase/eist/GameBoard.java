@@ -62,8 +62,8 @@ public class GameBoard {
 	 */
 	public GameBoard(Dimension2D size) {
 		this.size = size;
-//		FastCar playerCar = new FastCar(size);
-		KirbyCar playerCar = new KirbyCar(size);
+		FastCar playerCar = new FastCar(size);
+//		KirbyCar playerCar = new KirbyCar(size);
 		this.player = new Player(playerCar);
 		this.player.setup();
 		createCars();
@@ -220,7 +220,7 @@ public class GameBoard {
 				// TODO Backlog Item 11: The loser car is crunched and stops driving
 				loser.crunch();
 				// TODO Backlog Item 11: The player gets notified when he looses or wins the game
-				if(player.getCar().equals(winner) && this.getLoserCars().size() == this.getCars().size()-1) {
+				if(player.getCar().equals(winner) && this.getLoserCars().size() == this.getCars().size()) {
 					System.out.println("The player has won the game!");
 					this.gameOutcome = GameOutcome.WON;
 				} else if(player.getCar().equals(loser)) {
