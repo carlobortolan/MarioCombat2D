@@ -78,9 +78,9 @@ public class GameBoard {
 		for (int i = 0; i < NUMBER_OF_SLOW_CARS; i++) {
 			this.cars.add(new SlowCar(this.size));
 		}
-		for (int i = 0; i < NUMBER_OF_TESLA_CARS; i++) {
-			this.cars.add(new FastCar(this.size));
-		}
+//		for (int i = 0; i < NUMBER_OF_TESLA_CARS; i++) {
+//			this.cars.add(new FastCar(this.size));
+//		}
 		for (int i = 0; i < NUMBER_OF_MARIO_CARS; i++) {
 			this.cars.add(new MarioCar(this.size));
 		}	for (int i = 0; i < NUMBER_OF_DONKEYKONG_CARS; i++) {
