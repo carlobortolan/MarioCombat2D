@@ -9,8 +9,8 @@ public class MarioCar extends Car {
     private static final String MARIO_CAR_IMAGE_FILE = "MarioCar.png";
     private static final int MIN_SPEED_MARIO_CAR = 2;
     private static final int maxCollisionsBeforeCooldown = 5;
-    private static final int MAX_SPEED_MARIO_CAR = 15;
-    private int cooldown = maxCollisionsBeforeCooldown;
+    private static final int MAX_SPEED_MARIO_CAR = 10;
+//    private int cooldown = maxCollisionsBeforeCooldown;
 
     public MarioCar(Dimension2D gameBoardSize) {
         super(gameBoardSize);

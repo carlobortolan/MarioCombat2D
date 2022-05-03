@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.tum.in.ase.eist.audio.AudioPlayerInterface;
-import de.tum.in.ase.eist.car.Car;
-import de.tum.in.ase.eist.car.FastCar;
-import de.tum.in.ase.eist.car.SlowCar;
-import de.tum.in.ase.eist.car.MarioCar;
+import de.tum.in.ase.eist.car.*;
 import de.tum.in.ase.eist.collision.Collision;
 import de.tum.in.ase.eist.collision.DefaultCollision;
 
@@ -17,9 +14,11 @@ import de.tum.in.ase.eist.collision.DefaultCollision;
  */
 public class GameBoard {
 
-	private static final int NUMBER_OF_SLOW_CARS = 1;
-	private static final int NUMBER_OF_TESLA_CARS = 2;
-	private static final int NUMBER_OF_MARIO_CARS = 0;
+	private static final int NUMBER_OF_SLOW_CARS = 0;
+	private static final int NUMBER_OF_TESLA_CARS = 0;
+	private static final int NUMBER_OF_MARIO_CARS = 1;
+	private static final int NUMBER_OF_BOWSER_CARS = 1;
+	private static final int NUMBER_OF_DONKEYKONG_CARS = 1;
 
 	/**
 	 * List of all active cars, does not contain player car.
@@ -63,7 +62,8 @@ public class GameBoard {
 	 */
 	public GameBoard(Dimension2D size) {
 		this.size = size;
-		FastCar playerCar = new FastCar(size);
+//		FastCar playerCar = new FastCar(size);
+		KirbyCar playerCar = new KirbyCar(size);
 		this.player = new Player(playerCar);
 		this.player.setup();
 		createCars();
@@ -83,6 +83,10 @@ public class GameBoard {
 		}
 		for (int i = 0; i < NUMBER_OF_MARIO_CARS; i++) {
 			this.cars.add(new MarioCar(this.size));
+		}	for (int i = 0; i < NUMBER_OF_DONKEYKONG_CARS; i++) {
+			this.cars.add(new DonkeyKongCar(this.size));
+		}	for (int i = 0; i < NUMBER_OF_BOWSER_CARS; i++) {
+			this.cars.add(new BowserCar(this.size));
 		}
 	}
 
