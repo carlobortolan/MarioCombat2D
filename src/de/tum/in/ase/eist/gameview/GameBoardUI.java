@@ -37,10 +37,10 @@ public class GameBoardUI extends Canvas {
 	 * The update period of the game in ms, this gives us 25 fps.
 	 */
 	private static final int UPDATE_PERIOD = 1000 / 25;
-	private static final int DEFAULT_WIDTH = 1000;
-//	private static final int DEFAULT_WIDTH = 500;
-	private static final int DEFAULT_HEIGHT = 600;
-//	private static final int DEFAULT_HEIGHT = 300;
+	//private static final int DEFAULT_WIDTH = 1000;
+private static final int DEFAULT_WIDTH = 500;
+	//private static final int DEFAULT_HEIGHT = 600;
+		private static final int DEFAULT_HEIGHT = 300;
 	private static final Dimension2D DEFAULT_SIZE = new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
 	public static Dimension2D getPreferredSize() {
