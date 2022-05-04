@@ -31,31 +31,23 @@ public class MouseSteering {
 
 	public void scrollPressed(ScrollEvent scrollEvent) {
 		if (scrollEvent.getDeltaY()/10 > 0 && this.userCar.getSpeed() < this.userCar.getMaxSpeed()) {
-//			System.out.println("MIN: von " + this.userCar.getSpeed());
-
-
 			this.userCar.setSpeed(userCar.getSpeed()+1);
-//			System.out.println(" nach " + this.userCar.getSpeed());
-//			System.out.println("scrollEvent = " + scrollEvent);
-			//} else if(this.userCar instanceof KirbyCar && this.userCar.getSpeed() > this.userCar.getMaxSpeed()){
-		} else if(this.userCar.getSpeed() > this.userCar.getMinSpeed()){
+		} else if (this.userCar.getSpeed() > this.userCar.getMinSpeed()){
 			this.userCar.setSpeed(userCar.getSpeed()-1);
 		}
 	}
 
-	public void keyPressed(KeyEvent e) {
-		System.out.println("e = " + e);
-		if (e.getCode() == KeyCode.ALL_CANDIDATES) {
-			System.out.println("Right key pressed");
-		}
-		if (e.getCode() == KeyCode.ALL_CANDIDATES) {
-			System.out.println("Left key pressed");
-		}
-	}
+//	public void keyPressed(KeyEvent e) {
+//		System.out.println("e = " + e);
+//		if (e.getCode() == KeyCode.ALL_CANDIDATES) {
+//			System.out.println("Right key pressed");
+//		}
+//		if (e.getCode() == KeyCode.ALL_CANDIDATES) {
+//			System.out.println("Left key pressed");
+//		}
+//	}
 
 	public void mousePressed(MouseEvent clickEvent) {
-		System.out.println("clickEvent = " + clickEvent);
-
 		Point2D carPosition = userCar.getPosition();
 		Point2D clickPosition = new Point2D(clickEvent.getX(), clickEvent.getY());
 		double deltaX = clickPosition.getX() - carPosition.getX();
@@ -68,11 +60,6 @@ public class MouseSteering {
 		} else {
 			degree = ANGLE_270_DEGREES + degree;
 		}
-
-		//if(this.userCar instanceof KirbyCar && clickEvent.getClickCount() > 1 && this.userCar.getSpeed() < this.userCar.getMaxSpeed()) {
-		//if(clickEvent.getClickCount() > 1 && this.userCar.getSpeed() < this.userCar.getMaxSpeed()) {
-
-
 		userCar.setDirection(degree);
 	}
 }

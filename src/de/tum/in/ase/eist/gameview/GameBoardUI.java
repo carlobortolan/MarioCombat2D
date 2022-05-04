@@ -100,19 +100,31 @@ public class GameBoardUI extends Canvas {
 		this.setOnKeyPressed((KeyEvent e) -> {this.mouseSteering.keyPressed(e);});
 
 
-//		if(gameBoard.getMULTIPLAYER_ON()) {
-//			this.mouse2Steering = new MouseSteering(this.gameBoard.getPlayer2Car());
-//
-//			this.addEventHandler(KeyEvent.ANY, (KeyEvent e) -> {
-//				System.out.println("TEST");
-//			});
-//		} else {
+		if(gameBoard.getMULTIPLAYER_ON()) {
+			this.mouse2Steering = new MouseSteering(this.gameBoard.getPlayer2Car());
 
-		this.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent e) -> {
-				this.mouseSteering.keyPressed(e);
+		this.setOnMouseClicked((MouseEvent e) -> {
+			if (e.getButton() == MouseButton.PRIMARY) {
+				this.mouseSteering.mousePressed(e);
+			} else if (e.getButton() == MouseButton.SECONDARY) {
+				this.mouse2Steering.mousePressed(e);
+			}
 			});
-//		}
 
+//		this.setOnKeyPressed((KeyEvent e) -> {
+//				if (e.getCode() != KeyCode.ALPHANUMERIC) {
+//					this.mouseSteering.keyPressed(e);
+//				} else if (e.getCode() == KeyCode.UP) {
+//					this.mouse2Steering.keyPressed(e);
+//				}
+//		});
+
+		} else {
+
+//		this.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent e) -> {
+//				this.mouseSteering.keyPressed(e);
+//			});
+//		}
 
 		this.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent clickEvent) -> {
 			this.mouseSteering.mousePressed(clickEvent);
@@ -121,7 +133,7 @@ public class GameBoardUI extends Canvas {
 		this.addEventHandler(ScrollEvent.SCROLL, (ScrollEvent scrollEvent) -> {
 			this.mouseSteering.scrollPressed(scrollEvent);
 		});
-	}
+	}}
 
 	private void setupImageCache() {
 		this.imageCache = new HashMap<>();
