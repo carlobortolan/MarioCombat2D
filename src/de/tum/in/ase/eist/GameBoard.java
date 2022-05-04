@@ -220,7 +220,7 @@ public class GameBoard {
 				// TODO Backlog Item 11: The loser car is crunched and stops driving
 				loser.crunch();
 				// TODO Backlog Item 11: The player gets notified when he looses or wins the game
-				if (player.getCar().equals(winner) && this.getLoserCars().size() == this.getCars().size()) {
+				if (player.getCar().equals(winner) && this.getLoserCars().size() == this.getCars().size() && this.isWinner()) {
 					System.out.println("The player has won the game!");
 					this.gameOutcome = GameOutcome.WON;
 				} else if (player.getCar().equals(loser)) {
