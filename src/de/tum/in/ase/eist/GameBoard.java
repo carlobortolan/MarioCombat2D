@@ -6,7 +6,8 @@ import java.util.List;
 import de.tum.in.ase.eist.audio.AudioPlayerInterface;
 import de.tum.in.ase.eist.car.*;
 import de.tum.in.ase.eist.collision.Collision;
-import de.tum.in.ase.eist.collision.DefaultCollision;
+//import de.tum.in.ase.eist.collision.DefaultCollision;
+import de.tum.in.ase.eist.collision.ModeCollision;
 
 /**
  * Creates all car objects, detects collisions, updates car positions, notifies
@@ -73,6 +74,7 @@ public class GameBoard {
 		FastCar playerCar = new FastCar(size);
 		this.player = new Player(playerCar);
 		this.player.setup();
+		System.out.println("TEST");
 
 		if(GameBoard.MULTIPLAYER_ON) {
 			FastCar player2Car = new FastCar(size);
@@ -98,9 +100,11 @@ public class GameBoard {
 //			this.cars.add(new FastCar(this.size));
 //		}
 		if(!getMULTIPLAYER_ON()) {
-		for (int i = 0; i < NUMBER_OF_MARIO_CARS; i++) {
-			this.cars.add(new MarioCar(this.size));
-		}	for (int i = 0; i < NUMBER_OF_DONKEYKONG_CARS; i++) {
+//		for (int i = 0; i < NUMBER_OF_MARIO_CARS; i++) {
+//			this.cars.add(new MarioCar(this.size));
+//		}
+
+		for (int i = 0; i < NUMBER_OF_DONKEYKONG_CARS; i++) {
 			this.cars.add(new DonkeyKongCar(this.size));
 		}	for (int i = 0; i < NUMBER_OF_BOWSER_CARS; i++) {
 			this.cars.add(new BowserCar(this.size));
@@ -217,7 +221,8 @@ public class GameBoard {
 		}
 		if(this.getMULTIPLAYER_ON() && !player2.getCar().isCrunched()) {
 			this.player2.getCar().drive(size);
-			Collision collision12 = new DefaultCollision(player.getCar(), player2.getCar());
+//			Collision collision12 = new DefaultCollision(player.getCar(), player2.getCar());
+			Collision collision12 = new ModeCollision(player.getCar(), player2.getCar());
 			if(collision12.isCrash()) {
 				Car	winner = collision12.evaluate();
 				Car loser = collision12.evaluateLoser();
@@ -256,11 +261,13 @@ public class GameBoard {
 			 * collision between player car and autonomous car evaluates as expected
 			 */
 
-			Collision collision = new DefaultCollision(player.getCar(), car);
+//			Collision collision = new DefaultCollision(player.getCar(), car);
+			Collision collision = new ModeCollision(player.getCar(), car);
 			Collision collision2 = null;
 
 			if(this.getMULTIPLAYER_ON()) {
-				collision2 = new DefaultCollision(player2.getCar(), car);
+//				collision2 = new DefaultCollision(player2.getCar(), car);
+				collision2 = new ModeCollision(player2.getCar(), car);
 			}
 
 			if (collision.isCrash() || collision2 != null && collision2.isCrash()) {

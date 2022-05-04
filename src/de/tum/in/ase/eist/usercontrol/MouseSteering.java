@@ -2,7 +2,6 @@ package de.tum.in.ase.eist.usercontrol;
 
 import de.tum.in.ase.eist.Point2D;
 import de.tum.in.ase.eist.car.Car;
-import de.tum.in.ase.eist.car.KirbyCar;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;

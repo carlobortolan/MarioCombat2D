@@ -132,6 +132,7 @@ public class GameBoardUI extends Canvas {
 		this.imageCache = new HashMap<>();
 		for (Car car : this.gameBoard.getCars()) {
 			// Loads the image into the cache
+			System.out.println(car.getIconLocation());
 			getImage(car.getIconLocation());
 		}
 		String playerImageLocation = this.gameBoard.getPlayerCar().getIconLocation();

@@ -24,6 +24,8 @@ public abstract class Car {
 	private int speed;
 	private boolean crunched;
 
+	private int lifes = 3;
+
 	private Point2D position;
 	/**
 	 * The direction as degree within a circle, a value between 0 (inclusive) and
@@ -31,8 +33,16 @@ public abstract class Car {
 	 */
 	private int direction;
 
-	private String iconLocation;
-	private String icon2Location;
+	private String iconL0;
+	private String iconL1;
+	private String iconL2;
+	private String iconL3;
+	private String iconR0;
+	private String iconR1;
+	private String iconR2;
+	private String iconR3;
+
+
 	private Dimension2D size = new Dimension2D(DEFAULT_CAR_WIDTH, DEFAULT_CAR_HEIGHT);
 
 	/**
@@ -166,30 +176,50 @@ public abstract class Car {
 	}
 
 	public String getIconLocation() {
-	if(this.getDirection() > 180) {
-	return this.icon2Location;
-	} else {
-		return this.iconLocation;
-	}}
+//	if(this.getDirection() > 180) {
+//
+//		if(this instanceof BowserCar) {
+//			return "BowserCarL" + this.lifes + ".png";
+//
+//		} else if(this instanceof FastCar) {
+//			return "MarioCarL" + this.lifes + ".png";
+//
+//		} else if (this instanceof DonkeyKongCar) {
+//			return "DonkeyKongCarL" + this.lifes +".png" + "";
+//		}
+//	}
+//	else {
+//		if(this instanceof BowserCar) {
+//			return "BowserCarR" + this.lifes + ".png";
+//
+//		} else if(this instanceof FastCar) {
+//			return "MarioCarR" + this.lifes + ".png";
+//
+//		} else if (this instanceof DonkeyKongCar) {
+//			return "DonkeyKongCarR" + this.lifes +".a" + "" + "png" + "\r\n";
+//		}
+//
+//	}
+		return "null";}
 
-	/**
-	 * Sets the image path of the car.
-	 *
-	 * @param iconLocation the path to the image file
-	 * @throws NullPointerException if iconLocation is null
-	 */
-	protected void setIconLocation(String iconLocation) {
-		if (iconLocation == null) {
-			throw new NullPointerException("The chassis image of a car cannot be null.");
-		}
-		this.iconLocation = iconLocation;
-	}
-	protected void setIcon2Location(String icon2Location) {
-		if (icon2Location == null) {
-			throw new NullPointerException("The chassis image of a car cannot be null.");
-		}
-		this.icon2Location = icon2Location;
-	}
+//	/**
+//	 * Sets the image path of the car.
+//	 *
+//	 * @param iconLocation the path to the image file
+//	 * @throws NullPointerException if iconLocation is null
+//	 */
+//	protected void setIconLocation(String iconLocation) {
+//		if (iconLocation == null) {
+//			throw new NullPointerException("The chassis image of a car cannot be null.");
+//		}
+//		this.iconLocation = iconLocation;
+//	}
+//	protected void setIcon2Location(String icon2Location) {
+//		if (icon2Location == null) {
+//			throw new NullPointerException("The chassis image of a car cannot be null.");
+//		}
+//		this.icon2Location = icon2Location;
+//	}
 
 	public Point2D getPosition() {
 		return this.position;
@@ -258,5 +288,50 @@ public abstract class Car {
 	 */
 	protected static double calculateRandomDouble(double minValue, double maxValue) {
 		return ThreadLocalRandom.current().nextDouble(minValue, maxValue);
+	}
+
+	public void setLifes(int lifes) {
+		this.lifes = lifes;
+	}
+	public int getLifes() {
+		return this.lifes;
+	}
+
+	public void decreaseLife() {
+		if(this.getLifes() != 0) {
+			setLifes(getLifes()-1);
+		}
+	}
+
+	public void setIconL0(String iconL0) {
+		this.iconL0 = iconL0;
+	}
+
+	public void setIconL1(String iconL1) {
+		this.iconL1 = iconL1;
+	}
+
+	public void setIconL2(String iconL2) {
+		this.iconL2 = iconL2;
+	}
+
+	public void setIconL3(String iconL3) {
+		this.iconL3 = iconL3;
+	}
+
+	public void setIconR0(String iconR0) {
+		this.iconR0 = iconR0;
+	}
+
+	public void setIconR1(String iconR1) {
+		this.iconR1 = iconR1;
+	}
+
+	public void setIconR2(String iconR2) {
+		this.iconR2 = iconR2;
+	}
+
+	public void setIconR3(String iconR3) {
+		this.iconR3 = iconR3;
 	}
 }
