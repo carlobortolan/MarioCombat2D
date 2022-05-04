@@ -28,7 +28,7 @@ import javafx.scene.paint.Color;
  */
 public class GameBoardUI extends Canvas {
 
-	private static final Color BACKGROUND_COLOR = Color.WHITE;
+	//private static final Color BACKGROUND_COLOR = Color.WHITE;
 	/**
 	 * The update period of the game in ms, this gives us 25 fps.
 	 */

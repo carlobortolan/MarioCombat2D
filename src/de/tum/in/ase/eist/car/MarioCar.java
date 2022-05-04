@@ -2,8 +2,6 @@ package de.tum.in.ase.eist.car;
 
 import de.tum.in.ase.eist.Dimension2D;
 
-import java.util.Date;
-
 public class MarioCar extends Car {
 
     private static final String MARIO_CAR_IMAGE_FILE = "MarioCar.png";
