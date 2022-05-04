@@ -4,16 +4,16 @@ import de.tum.in.ase.eist.Dimension2D;
 
 public class DonkeyKongCar extends Car {
 
-    private static final String DONKEYKONG_Car_IMAGE_FILE = "DonkeyKongCar.png";
+    private static final String DONKEYKONG_CAR_IMAGE_FILE = "DonkeyKongCar.png";
 
-    private static final int MIN_SPEED_DONKEYKONG_Car = 2;
-    private static final int MAX_SPEED_DONKEKONG_Car = 6;
+    private static final int MIN_SPEED_DONKEYKONG_CAR = 2;
+    private static final int MAX_SPEED_DONKEKONG_CAR = 6;
 
     public  DonkeyKongCar(Dimension2D gameBoardSize) {
         super(gameBoardSize);
-        setMinSpeed(MIN_SPEED_DONKEYKONG_Car);
-        setMaxSpeed(MAX_SPEED_DONKEKONG_Car);
+        setMinSpeed(MIN_SPEED_DONKEYKONG_CAR);
+        setMaxSpeed(MAX_SPEED_DONKEKONG_CAR);
         setRandomSpeed();
-        setIconLocation(DONKEYKONG_Car_IMAGE_FILE);
+        setIconLocation(DONKEYKONG_CAR_IMAGE_FILE);
     }
 }
