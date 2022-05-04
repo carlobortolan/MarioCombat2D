@@ -1,6 +1,7 @@
 package de.tum.in.ase.eist.gameview;
 
 import java.net.URL;
+import java.security.Key;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,11 +14,12 @@ import de.tum.in.ase.eist.audio.AudioPlayer;
 import de.tum.in.ase.eist.car.Car;
 import de.tum.in.ase.eist.usercontrol.MouseSteering;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-
+import javafx.scene.input.*;
 
 
 /**
@@ -53,6 +55,8 @@ public class GameBoardUI extends Canvas {
 	private final GameToolBar gameToolBar;
 
 	private MouseSteering mouseSteering;
+	private MouseSteering mouse2Steering;
+//	private WASDSteering wasdSteering;
 
 	private HashMap<String, Image> imageCache;
 
@@ -68,6 +72,9 @@ public class GameBoardUI extends Canvas {
 	public MouseSteering getMouseSteering() {
 		return mouseSteering;
 	}
+		//	}public WASDSteering getWASDSteering() {
+//		return wasdSteering;
+//	}
 
 	/**
 	 * Removes all existing cars from the game board and re-adds them. Player car is
@@ -84,11 +91,35 @@ public class GameBoardUI extends Canvas {
 		Dimension2D size = getPreferredSize();
 		this.gameBoard = new GameBoard(size);
 		this.gameBoard.setAudioPlayer(new AudioPlayer());
+
 		widthProperty().set(size.getWidth());
 		heightProperty().set(size.getHeight());
+
 		this.mouseSteering = new MouseSteering(this.gameBoard.getPlayerCar());
+
+		this.setOnKeyPressed((KeyEvent e) -> {this.mouseSteering.keyPressed(e);});
+
+
+//		if(gameBoard.getMULTIPLAYER_ON()) {
+//			this.mouse2Steering = new MouseSteering(this.gameBoard.getPlayer2Car());
+//
+//			this.addEventHandler(KeyEvent.ANY, (KeyEvent e) -> {
+//				System.out.println("TEST");
+//			});
+//		} else {
+
+		this.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent e) -> {
+				this.mouseSteering.keyPressed(e);
+			});
+//		}
+
+
 		this.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent clickEvent) -> {
 			this.mouseSteering.mousePressed(clickEvent);
+		});
+
+		this.addEventHandler(ScrollEvent.SCROLL, (ScrollEvent scrollEvent) -> {
+			this.mouseSteering.scrollPressed(scrollEvent);
 		});
 	}
 

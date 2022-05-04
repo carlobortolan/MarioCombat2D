@@ -1,8 +1,11 @@
 package de.tum.in.ase.eist.gameview;
 
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyEvent;
 
+import java.security.Key;
 import java.util.Optional;
 
 /**
@@ -25,7 +28,6 @@ public class GameToolBar extends ToolBar {
 	 */
 	public void initializeActions(GameBoardUI gameBoardUI) {
 		this.start.setOnAction(event -> gameBoardUI.startGame());
-
 		this.stop.setOnAction(event -> {
 			// stop the game while the alert is shown
 			gameBoardUI.stopGame();

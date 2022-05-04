@@ -20,7 +20,7 @@ public class GameBoard {
 	private static final int NUMBER_OF_BOWSER_CARS = 1;
 	private static final int NUMBER_OF_DONKEYKONG_CARS = 1;
 
-	private static final boolean MULTIPLAYER_ON = false;
+	private static final boolean MULTIPLAYER_ON = true;
 
 	public boolean getMULTIPLAYER_ON() {
 		return GameBoard.MULTIPLAYER_ON;
@@ -211,6 +211,9 @@ public class GameBoard {
 			car.drive(size);
 		}
 		this.player.getCar().drive(size);
+		if(getMULTIPLAYER_ON()) {
+			this.player2.getCar().drive(size);
+		}
 		if(this.getMULTIPLAYER_ON() && !player2.getCar().isCrunched()) {
 			this.player2.getCar().drive(size);
 			Collision collision12 = new DefaultCollision(player.getCar(), player2.getCar());
