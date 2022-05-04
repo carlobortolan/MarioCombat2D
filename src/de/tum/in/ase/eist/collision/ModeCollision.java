@@ -3,12 +3,19 @@ package de.tum.in.ase.eist.collision;
 import de.tum.in.ase.eist.Dimension2D;
 import de.tum.in.ase.eist.GameBoard;
 import de.tum.in.ase.eist.Point2D;
+import de.tum.in.ase.eist.audio.AudioPlayer;
 import de.tum.in.ase.eist.car.Car;
 
 public class ModeCollision extends Collision {
-    public ModeCollision(Car car1, Car car2) {
+
+    private AudioPlayer audioPlayer = new AudioPlayer()   ;
+    public ModeCollision(Car car1, Car car2, AudioPlayer audioPlayer) {
         super(car1, car2);
-    }
+        if(audioPlayer == null) {
+            this.audioPlayer = new AudioPlayer();
+        } else {
+        this.audioPlayer = audioPlayer;
+    }}
 
     public boolean detectCollision() {
         Point2D p1 = getCar1().getPosition();
@@ -39,10 +46,15 @@ public class ModeCollision extends Collision {
             loserCar.decreaseLife();
             loserCar.setPosition(500, 0);
             loserCar.setDirection(180);
+            AudioPlayer a = new AudioPlayer();
+            a.playCrashSound();
+
             return false;
         } else if (loserCar.getLifes() == 1) {
             loserCar.decreaseLife();
-            return true;
+
+            AudioPlayer a = new AudioPlayer();
+            a.playKOSound();return  true;
         } else {
             return false;
         }

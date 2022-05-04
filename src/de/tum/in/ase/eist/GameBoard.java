@@ -3,6 +3,7 @@ package de.tum.in.ase.eist;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.tum.in.ase.eist.audio.AudioPlayer;
 import de.tum.in.ase.eist.audio.AudioPlayerInterface;
 import de.tum.in.ase.eist.car.*;
 import de.tum.in.ase.eist.collision.Collision;
@@ -249,7 +250,7 @@ public class GameBoard {
 		if(this.getMULTIPLAYER_ON() && !player2.getCar().isCrunched()) {
 			this.player2.getCar().drive(size);
 //			Collision collision12 = new DefaultCollision(player.getCar(), player2.getCar());
-			Collision collision12 = new ModeCollision(player.getCar(), player2.getCar());
+			Collision collision12 = new ModeCollision(player.getCar(), player2.getCar(), (AudioPlayer) this.getAudioPlayer());
 			if(collision12.isCrash()) {
 				Car	winner = collision12.evaluate();
 				Car loser = collision12.evaluateLoser();
@@ -289,12 +290,12 @@ public class GameBoard {
 			 */
 
 //			Collision collision = new DefaultCollision(player.getCar(), car);
-			Collision collision = new ModeCollision(player.getCar(), car);
-			Collision collision2 = null;
+			ModeCollision collision = new ModeCollision(player.getCar(), car, (AudioPlayer) this.getAudioPlayer());
+			ModeCollision collision2 = null;
 
 			if(this.getMULTIPLAYER_ON()) {
 //				collision2 = new DefaultCollision(player2.getCar(), car);
-				collision2 = new ModeCollision(player2.getCar(), car);
+				collision2 = new ModeCollision(player2.getCar(), car, (AudioPlayer) this.getAudioPlayer());
 			}
 
 			if (collision.isCrash() || collision2 != null && collision2.isCrash()) {

@@ -1,5 +1,6 @@
 package de.tum.in.ase.eist.collision;
 
+import de.tum.in.ase.eist.GameBoard;
 import de.tum.in.ase.eist.car.Car;
 
 /**
@@ -11,7 +12,7 @@ public abstract class Collision {
     private final Car car2;
     private final boolean crash;
 
-    public Collision(Car car1, Car car2) {
+    public Collision(Car car1, Car car2 ) {
         this.car1 = car1;
         this.car2 = car2;
         this.crash = detectCollision();

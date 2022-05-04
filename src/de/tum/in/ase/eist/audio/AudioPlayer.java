@@ -13,11 +13,13 @@ public class AudioPlayer implements AudioPlayerInterface {
 
 	private static final String BACKGROUND_MUSIC_FILE = "MarioKart.mp3";
 	private static final String CRASH_SOUND_FILE = "Crash.mp3";
+	private static final String KO_SOUND_FILE = "KO.mp3";
 
 	private static final double CRASH_SOUND_VOLUME = 0.5;
 
 	private final MediaPlayer musicPlayer;
 	private final AudioClip crashPlayer;
+	private final AudioClip KOPlayer;
 
 	/**
 	 * Constructs a new AudioPlayer by directly loading the background music and
@@ -26,6 +28,7 @@ public class AudioPlayer implements AudioPlayerInterface {
 	public AudioPlayer() {
 		this.musicPlayer = new MediaPlayer(loadAudioFile(BACKGROUND_MUSIC_FILE));
 		this.crashPlayer = new AudioClip(convertNameToUrl(CRASH_SOUND_FILE));
+		this.KOPlayer = new AudioClip(convertNameToUrl(KO_SOUND_FILE));
 	}
 
 	@Override
@@ -53,6 +56,10 @@ public class AudioPlayer implements AudioPlayerInterface {
 	@Override
 	public void playCrashSound() {
 		crashPlayer.play(CRASH_SOUND_VOLUME);
+	}
+
+	public void playKOSound() {
+		this.KOPlayer.play(2);
 	}
 
 	private Media loadAudioFile(String fileName) {
