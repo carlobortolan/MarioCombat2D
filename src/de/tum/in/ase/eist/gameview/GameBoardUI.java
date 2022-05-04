@@ -1,9 +1,5 @@
 package de.tum.in.ase.eist.gameview;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Timer;
@@ -23,7 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-import javax.imageio.ImageIO;
+
 
 /**
  * This class implements the user interface for steering the player car. The

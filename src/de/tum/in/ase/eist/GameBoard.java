@@ -14,8 +14,8 @@ import de.tum.in.ase.eist.collision.DefaultCollision;
  */
 public class GameBoard {
 
-	private static final int NUMBER_OF_SLOW_CARS = 0;
-	private static final int NUMBER_OF_TESLA_CARS = 0;
+//	private static final int NUMBER_OF_SLOW_CARS = 0;
+	//private static final int NUMBER_OF_TESLA_CARS = 0;
 	private static final int NUMBER_OF_MARIO_CARS = 1;
 	private static final int NUMBER_OF_BOWSER_CARS = 1;
 	private static final int NUMBER_OF_DONKEYKONG_CARS = 1;
@@ -70,7 +70,7 @@ public class GameBoard {
 	}
 
 	/**
-	 * Creates as many cars as specified by {@link #NUMBER_OF_SLOW_CARS} and adds
+	 * Creates as many cars as specified by {NUMBER_OF_SLOW_CARS} and adds
 	 * them to the cars list.
 	 */
 	private void createCars() {
