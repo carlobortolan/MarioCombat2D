@@ -20,6 +20,12 @@ public class GameBoard {
 	private static final int NUMBER_OF_BOWSER_CARS = 1;
 	private static final int NUMBER_OF_DONKEYKONG_CARS = 1;
 
+	private static final boolean MULTIPLAYER_ON = true;
+
+	public boolean getMULTIPLAYER_ON() {
+		return GameBoard.MULTIPLAYER_ON;
+	}
+
 	/**
 	 * List of all active cars, does not contain player car.
 	 */
@@ -29,6 +35,7 @@ public class GameBoard {
 	 * The player object with player's car.
 	 */
 	private final Player player;
+	private final Player2 player2;
 
 	/**
 	 * AudioPlayer responsible for handling music and game sounds.
@@ -63,9 +70,17 @@ public class GameBoard {
 	public GameBoard(Dimension2D size) {
 		this.size = size;
 		FastCar playerCar = new FastCar(size);
-//		KirbyCar playerCar = new KirbyCar(size);
 		this.player = new Player(playerCar);
 		this.player.setup();
+
+		if(GameBoard.MULTIPLAYER_ON) {
+			FastCar player2Car = new FastCar(size);
+			this.player2 = new Player2(player2Car);
+			this.player2.setup();
+		} else {
+			player2 = null;
+		}
+
 		createCars();
 	}
 
@@ -81,13 +96,14 @@ public class GameBoard {
 //		for (int i = 0; i < NUMBER_OF_TESLA_CARS; i++) {
 //			this.cars.add(new FastCar(this.size));
 //		}
+		if(!getMULTIPLAYER_ON()) {
 		for (int i = 0; i < NUMBER_OF_MARIO_CARS; i++) {
 			this.cars.add(new MarioCar(this.size));
 		}	for (int i = 0; i < NUMBER_OF_DONKEYKONG_CARS; i++) {
 			this.cars.add(new DonkeyKongCar(this.size));
 		}	for (int i = 0; i < NUMBER_OF_BOWSER_CARS; i++) {
 			this.cars.add(new BowserCar(this.size));
-		}
+		}}
 	}
 
 	public Dimension2D getSize() {
@@ -129,6 +145,9 @@ public class GameBoard {
 
 	public Car getPlayerCar() {
 		return this.player.getCar();
+	}
+	public Car getPlayer2Car() {
+		return this.player2.getCar();
 	}
 
 	public AudioPlayerInterface getAudioPlayer() {
@@ -192,8 +211,34 @@ public class GameBoard {
 			car.drive(size);
 		}
 		this.player.getCar().drive(size);
+		if(this.getMULTIPLAYER_ON() && !player2.getCar().isCrunched()) {
+			this.player2.getCar().drive(size);
+			Collision collision12 = new DefaultCollision(player.getCar(), player2.getCar());
+			if(collision12.isCrash()) {
+				Car	winner = collision12.evaluate();
+				Car loser = collision12.evaluateLoser();
+				printWinner(winner);
+				loserCars.add(loser);
+				this.audioPlayer.playCrashSound();
+				if (player.getCar().equals(winner) && this.getLoserCars().size() == this.getCars().size() && this.isWinner()) {
+					System.out.println("Player 1 has won the game!");
+					this.gameOutcome = GameOutcome.WON;
+				} else if (player.getCar().equals(loser)) {
+					System.out.println("Player 1 has lost the game!");
+					this.gameOutcome = GameOutcome.LOST;
+				}
+				if (player2.getCar().equals(winner) && this.getLoserCars().size() == this.getCars().size() && this.isWinner()) {
+					System.out.println("Player 2 has won the game!");
+					this.gameOutcome = GameOutcome.LOST;
+				} else if (player2.getCar().equals(loser)) {
+					System.out.println("Player 2 has lost the game!");
+					this.gameOutcome = GameOutcome.WON;
+				}
 
+			}
+		}
 		// iterate through all cars (except player car) and check if it is crunched
+
 		for (Car car : cars) {
 			if (car.isCrunched()) {
 				// because there is no need to check for a collision
@@ -208,12 +253,24 @@ public class GameBoard {
 			 */
 
 			Collision collision = new DefaultCollision(player.getCar(), car);
+			Collision collision2 = new DefaultCollision(player2.getCar(), car);
 
-			if (collision.isCrash()) {
-				Car winner = collision.evaluate();
-				Car loser = collision.evaluateLoser();
-				printWinner(winner);
-				loserCars.add(loser);
+			if (collision.isCrash() || collision2.isCrash()) {
+
+				Car winner = null;
+				Car loser = null;
+				if(collision.isCrash()) {
+					 winner = collision.evaluate();
+					loser = collision.evaluateLoser();
+					printWinner(winner);
+					loserCars.add(loser);
+				}
+				else if(collision2.isCrash()) {
+					 winner = collision2.evaluate();
+					 loser = collision2.evaluateLoser();
+					printWinner(winner);
+					loserCars.add(loser);
+				}
 
 				this.audioPlayer.playCrashSound();
 
@@ -221,10 +278,17 @@ public class GameBoard {
 				loser.crunch();
 				// TODO Backlog Item 11: The player gets notified when he looses or wins the game
 				if (player.getCar().equals(winner) && this.getLoserCars().size() == this.getCars().size() && this.isWinner()) {
-					System.out.println("The player has won the game!");
+					System.out.println("Player 1 has won the game!");
 					this.gameOutcome = GameOutcome.WON;
 				} else if (player.getCar().equals(loser)) {
-					System.out.println("The player has lost the game!");
+					System.out.println("Player 1 has lost the game!");
+					this.gameOutcome = GameOutcome.LOST;
+				}
+				if (this.getMULTIPLAYER_ON() && player2.getCar().equals(winner) && this.getLoserCars().size() == this.getCars().size() && this.isWinner()) {
+					System.out.println("Player 2 has won the game!");
+					this.gameOutcome = GameOutcome.WON;
+				} else if (this.getMULTIPLAYER_ON() && player2.getCar().equals(loser)) {
+					System.out.println("Player 2 has lost the game!");
 					this.gameOutcome = GameOutcome.LOST;
 				}
 				/*

@@ -99,6 +99,9 @@ public class GameBoardUI extends Canvas {
 			getImage(car.getIconLocation());
 		}
 		String playerImageLocation = this.gameBoard.getPlayerCar().getIconLocation();
+		if(this.gameBoard.getMULTIPLAYER_ON()) {
+			String player2ImageLocation = this.gameBoard.getPlayer2Car().getIconLocation();
+		}
 		getImage(playerImageLocation);
 	}
 
@@ -197,6 +200,9 @@ public class GameBoardUI extends Canvas {
 		}
 		// render player car
 		paintCar(this.gameBoard.getPlayerCar());
+		if(gameBoard.getMULTIPLAYER_ON()) {
+		paintCar(this.gameBoard.getPlayer2Car());
+		}
 	}
 
 
@@ -208,8 +214,13 @@ public class GameBoardUI extends Canvas {
 	private void paintCar(Car car) {
 		Point2D carPosition = car.getPosition();
 
+		if(car.getDirection() > 180) {
+			getGraphicsContext2D().drawImage(getImage(car.getIconLocation()), carPosition.getX(),
+					carPosition.getY(), car.getSize().getWidth(), car.getSize().getHeight());
+		} else {
 		getGraphicsContext2D().drawImage(getImage(car.getIconLocation()), carPosition.getX(),
 				carPosition.getY(), car.getSize().getWidth(), car.getSize().getHeight());
+	}
 	}
 
 	/**

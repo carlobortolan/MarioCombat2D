@@ -13,10 +13,11 @@ public abstract class Car {
 	protected static final int MAX_ANGLE = 360;
 	protected static final int HALF_ANGLE = MAX_ANGLE / 2;
 
-	//protected static final int DEFAULT_CAR_WIDTH = 100;
-	protected static final int DEFAULT_CAR_WIDTH = 50;
-	//protected static final int DEFAULT_CAR_HEIGHT = 85;
-	protected static final int DEFAULT_CAR_HEIGHT = 25;
+	protected static final int DEFAULT_CAR_WIDTH = 100;
+
+//	protected static final int DEFAULT_CAR_WIDTH = 50;
+	protected static final int DEFAULT_CAR_HEIGHT = 85;
+//	protected static final int DEFAULT_CAR_HEIGHT = 25;
 
 	private int minSpeed;
 	private int maxSpeed;
@@ -31,6 +32,7 @@ public abstract class Car {
 	private int direction;
 
 	private String iconLocation;
+	private String icon2Location;
 	private Dimension2D size = new Dimension2D(DEFAULT_CAR_WIDTH, DEFAULT_CAR_HEIGHT);
 
 	/**
@@ -131,6 +133,9 @@ public abstract class Car {
 		if (direction < 0 || direction >= MAX_ANGLE) {
 			throw new IllegalArgumentException("Direction must be between 0 (inclusive) and 360 (exclusive)");
 		}
+		if(direction > 180) {
+
+		}
 		this.direction = direction;
 	}
 
@@ -161,8 +166,11 @@ public abstract class Car {
 	}
 
 	public String getIconLocation() {
+	if(this.getDirection() > 180) {
+	return this.icon2Location;
+	} else {
 		return this.iconLocation;
-	}
+	}}
 
 	/**
 	 * Sets the image path of the car.
@@ -175,6 +183,12 @@ public abstract class Car {
 			throw new NullPointerException("The chassis image of a car cannot be null.");
 		}
 		this.iconLocation = iconLocation;
+	}
+	protected void setIcon2Location(String icon2Location) {
+		if (icon2Location == null) {
+			throw new NullPointerException("The chassis image of a car cannot be null.");
+		}
+		this.icon2Location = icon2Location;
 	}
 
 	public Point2D getPosition() {
