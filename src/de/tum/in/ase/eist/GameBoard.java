@@ -21,11 +21,19 @@ public class GameBoard {
 	private static final int NUMBER_OF_BOWSER_CARS = 1;
 	private static final int NUMBER_OF_DONKEYKONG_CARS = 1;
 
+	public boolean isMULTIPLAYER_ON() {
+		return MULTIPLAYER_ON;
+	}
+
+	public void setMULTIPLAYER_ON(boolean MULTIPLAYER_ON) {
+		this.MULTIPLAYER_ON = MULTIPLAYER_ON;
+	}
+
 	//TODO CHANGE TO LOCAL MULTIPLAYER
-	private static final boolean MULTIPLAYER_ON = false;
+	private boolean MULTIPLAYER_ON = false;
 
 	public boolean getMULTIPLAYER_ON() {
-		return GameBoard.MULTIPLAYER_ON;
+		return this.isMULTIPLAYER_ON();
 	}
 
 	/**
@@ -76,7 +84,26 @@ public class GameBoard {
 		this.player.setup();
 		System.out.println("TEST");
 
-		if(GameBoard.MULTIPLAYER_ON) {
+		if(this.isMULTIPLAYER_ON()) {
+			FastCar player2Car = new FastCar(size);
+			this.player2 = new Player2(player2Car);
+			this.player2.setup();
+		} else {
+			player2 = null;
+		}
+
+		createCars();
+	}
+
+	public GameBoard(Dimension2D size, boolean multiPlayer) {
+		this.size = size;
+		FastCar playerCar = new FastCar(size);
+		this.player = new Player(playerCar);
+		this.player.setup();
+		System.out.println("TEST");
+		this.setMULTIPLAYER_ON(multiPlayer);
+
+		if(this.isMULTIPLAYER_ON()) {
 			FastCar player2Car = new FastCar(size);
 			this.player2 = new Player2(player2Car);
 			this.player2.setup();

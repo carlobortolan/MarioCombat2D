@@ -37,8 +37,29 @@ public class BumpersApplication extends Application {
 	public void start(Stage primaryStage) {
 		// the tool bar object with start and stop buttons
 		GameToolBar toolBar = new GameToolBar();
-		GameBoardUI gameBoardUI = new GameBoardUI(toolBar);
+		GameBoardUI gameBoardUI = new GameBoardUI(toolBar, false);
 		toolBar.initializeActions(gameBoardUI);
+
+//		toolBar.getMultiPlayerON().setOnAction(event -> {
+//
+//			gameBoardUI.getGameBoard().setMULTIPLAYER_ON(true);
+//			gameBoardUI.stopGame();
+//			gameBoardUI.setup();
+//			toolBar.getMultiPlayerON().setDisable(true);
+//			toolBar.getMultiPlayerOFF().setDisable(false);
+//			toolBar.initializeActions(gameBoardUI);
+//		});
+//
+//		toolBar.getMultiPlayerOFF().setOnAction(event -> {
+//
+//			gameBoardUI.getGameBoard().setMULTIPLAYER_ON(false);
+//			gameBoardUI.getGameBoard().startGame();
+//			gameBoardUI.stopGame();
+//			gameBoardUI.setup();
+//			toolBar.getMultiPlayerON().setDisable(false);
+//			toolBar.getMultiPlayerOFF().setDisable(true);
+//			this.start(primaryStage);
+//		});
 
 		Pane gridLayout = createLayout(gameBoardUI, toolBar);
 

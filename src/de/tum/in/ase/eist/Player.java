@@ -7,9 +7,9 @@ import de.tum.in.ase.eist.car.Car;
  */
 public class Player {
 
-	private static final double START_X_COORDINATE = 0.0;
+	private static final double START_X_COORDINATE = 250;
 	private static final double START_Y_COORDINATE = 0.0;
-	private static final int START_DIRECTION = 90;
+	private static final int START_DIRECTION = 180;
 
 	private Car car;
 

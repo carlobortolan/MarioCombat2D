@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Text;
 
 import java.security.Key;
 import java.util.Optional;
@@ -12,15 +13,31 @@ import java.util.Optional;
  * This class visualizes the tool bar with start and stop buttons above the game board.
  */
 public class GameToolBar extends ToolBar {
+	public Button getMultiPlayerON() {
+		return multiPlayerON;
+	}
+
+	public Button getMultiPlayerOFF() {
+		return multiPlayerOFF;
+	}
+
 	private final Button start;
 	private final Button stop;
+	private final Text text;
+	private final Button multiPlayerON;
+	private final Button multiPlayerOFF;
 
 	public GameToolBar() {
 		this.start = new Button("Start");
 		this.stop = new Button("Stop");
+		this.text = new Text("local MultiPlayer Mode");
+		this.multiPlayerON = new Button("ON");
+		this.multiPlayerOFF = new Button("OFF");
+		this.multiPlayerOFF.setDisable(true);
+		this.multiPlayerON.setDisable(false);
 		// the game is stopped initially
 		updateToolBarStatus(false);
-		getItems().addAll(this.start, new Separator(), this.stop);
+		getItems().addAll(this.start, new Separator(), this.stop, new Separator(), this.text, this.multiPlayerON, this.multiPlayerOFF);
 	}
 
 	/**
@@ -44,13 +61,34 @@ public class GameToolBar extends ToolBar {
 			// instance of the ButtonType
 			if (result.isPresent() && result.get() == ButtonType.YES) {
 				// reset the game board to prepare the new game
-				gameBoardUI.setup();
+				gameBoardUI.setup(false);
+				this.multiPlayerON.setDisable(true);
+				this.multiPlayerOFF.setDisable(false);
 			} else {
 				// continue running
 				gameBoardUI.startGame();
 			}
 		});
-	}
+		this.multiPlayerON.setOnAction(event -> {
+
+				gameBoardUI.getGameBoard().setMULTIPLAYER_ON(true);
+				gameBoardUI.stopGame();
+				gameBoardUI.setup(true);
+				multiPlayerON.setDisable(true);
+				multiPlayerOFF.setDisable(false);
+//				gameBoardUI.getGameBoard().stopGame();
+//				gameBoardUI.getGameBoard().startGame();
+//				gameBoardUI.startGame();
+		});
+
+		this.multiPlayerOFF.setOnAction(event -> {
+
+			gameBoardUI.getGameBoard().setMULTIPLAYER_ON(false);
+			gameBoardUI.getGameBoard().stopGame();
+			gameBoardUI.setup(false);
+			multiPlayerON.setDisable(false);
+			multiPlayerOFF.setDisable(true);
+		});	}
 
 	/**
 	 * Updates the status of the toolbar. This will for example enable or disable
@@ -61,5 +99,7 @@ public class GameToolBar extends ToolBar {
 	public void updateToolBarStatus(boolean running) {
 		this.start.setDisable(running);
 		this.stop.setDisable(!running);
+//		this.multiPlayerON.setDisable(running);
+//		this.multiPlayerOFF.setDisable(running);
 	}
 }

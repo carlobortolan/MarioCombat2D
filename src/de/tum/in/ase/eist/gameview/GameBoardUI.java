@@ -59,9 +59,9 @@ public class GameBoardUI extends Canvas {
 
 	private HashMap<String, Image> imageCache;
 
-	public GameBoardUI(GameToolBar gameToolBar) {
+	public GameBoardUI(GameToolBar gameToolBar, boolean multiplayer) {
 		this.gameToolBar = gameToolBar;
-		setup();
+		setup(multiplayer);
 	}
 
 	public GameBoard getGameBoard() {
@@ -76,16 +76,16 @@ public class GameBoardUI extends Canvas {
 	 * Removes all existing cars from the game board and re-adds them. Player car is
 	 * reset to default starting position. Renders graphics.
 	 */
-	public void setup() {
-		setupGameBoard();
+	public void setup(boolean multiplayer) {
+		setupGameBoard(multiplayer);
 		setupImageCache();
 		this.gameToolBar.updateToolBarStatus(false);
 		paint();
 	}
 
-	private void setupGameBoard() {
+	private void setupGameBoard(boolean multiplayer) {
 		Dimension2D size = getPreferredSize();
-		this.gameBoard = new GameBoard(size);
+		this.gameBoard = new GameBoard(size, multiplayer);
 		this.gameBoard.setAudioPlayer(new AudioPlayer());
 
 		widthProperty().set(size.getWidth());
@@ -270,7 +270,7 @@ public class GameBoardUI extends Canvas {
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setHeaderText(message);
 			alert.showAndWait();
-			this.setup();
+			this.setup(false);
 		});
 	}
 }

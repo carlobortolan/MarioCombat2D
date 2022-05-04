@@ -19,10 +19,10 @@ public class FastCar extends Car {
 	@Override
 	public String getIconLocation() {
 		if(this.getDirection() > 180) {
-			return "MarioCarL" + this.getLifes() + ".png";
+			return "MarioCarR" + this.getLifes() + ".png";
 		}
 		else {
-			return "MarioCarR" + this.getLifes() + ".png";
+			return "MarioCarL" + this.getLifes() + ".png";
 		}
 	}
 
