@@ -252,7 +252,7 @@ public class GameBoard {
 		if(this.getMULTIPLAYER_ON() && !player2.getCar().isCrunched()) {
 			this.player2.getCar().drive(size);
 //			Collision collision12 = new DefaultCollision(player.getCar(), player2.getCar());
-			Collision collision12 = new ModeCollision(player.getCar(), player2.getCar(), (AudioPlayer) this.getAudioPlayer());
+			Collision collision12 = new ModeCollision(player.getCar(), player2.getCar());
 			if(collision12.isCrash()) {
 				Car	winner = collision12.evaluate();
 				Car loser = collision12.evaluateLoser();
@@ -292,12 +292,12 @@ public class GameBoard {
 			 */
 
 //			Collision collision = new DefaultCollision(player.getCar(), car);
-			ModeCollision collision = new ModeCollision(player.getCar(), car, (AudioPlayer) this.getAudioPlayer());
+			ModeCollision collision = new ModeCollision(player.getCar(), car);
 			ModeCollision collision2 = null;
 
 			if(this.getMULTIPLAYER_ON()) {
 //				collision2 = new DefaultCollision(player2.getCar(), car);
-				collision2 = new ModeCollision(player2.getCar(), car, (AudioPlayer) this.getAudioPlayer());
+				collision2 = new ModeCollision(player2.getCar(), car);
 			}
 
 			if (collision.isCrash() || collision2 != null && collision2.isCrash()) {
