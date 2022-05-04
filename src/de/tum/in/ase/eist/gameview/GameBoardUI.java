@@ -56,7 +56,6 @@ public class GameBoardUI extends Canvas {
 
 	private MouseSteering mouseSteering;
 	private MouseSteering mouse2Steering;
-//	private WASDSteering wasdSteering;
 
 	private HashMap<String, Image> imageCache;
 
@@ -72,9 +71,6 @@ public class GameBoardUI extends Canvas {
 	public MouseSteering getMouseSteering() {
 		return mouseSteering;
 	}
-		//	}public WASDSteering getWASDSteering() {
-//		return wasdSteering;
-//	}
 
 	/**
 	 * Removes all existing cars from the game board and re-adds them. Player car is
@@ -96,9 +92,6 @@ public class GameBoardUI extends Canvas {
 		heightProperty().set(size.getHeight());
 
 		this.mouseSteering = new MouseSteering(this.gameBoard.getPlayerCar());
-
-		this.setOnKeyPressed((KeyEvent e) -> {this.mouseSteering.keyPressed(e);});
-
 
 		if(gameBoard.getMULTIPLAYER_ON()) {
 			this.mouse2Steering = new MouseSteering(this.gameBoard.getPlayer2Car());

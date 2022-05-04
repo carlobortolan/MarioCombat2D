@@ -20,7 +20,8 @@ public class GameBoard {
 	private static final int NUMBER_OF_BOWSER_CARS = 1;
 	private static final int NUMBER_OF_DONKEYKONG_CARS = 1;
 
-	private static final boolean MULTIPLAYER_ON = true;
+	//TODO CHANGE TO LOCAL MULTIPLAYER
+	private static final boolean MULTIPLAYER_ON = false;
 
 	public boolean getMULTIPLAYER_ON() {
 		return GameBoard.MULTIPLAYER_ON;
