@@ -253,9 +253,13 @@ public class GameBoard {
 			 */
 
 			Collision collision = new DefaultCollision(player.getCar(), car);
-			Collision collision2 = new DefaultCollision(player2.getCar(), car);
+			Collision collision2 = null;
 
-			if (collision.isCrash() || collision2.isCrash()) {
+			if(this.getMULTIPLAYER_ON()) {
+				collision2 = new DefaultCollision(player2.getCar(), car);
+			}
+
+			if (collision.isCrash() || collision2 != null && collision2.isCrash()) {
 
 				Car winner = null;
 				Car loser = null;
