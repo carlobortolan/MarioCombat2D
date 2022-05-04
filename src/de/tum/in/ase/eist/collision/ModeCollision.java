@@ -7,13 +7,13 @@ import de.tum.in.ase.eist.car.Car;
 
 public class ModeCollision extends Collision {
 
-    private AudioPlayer audioPlayer;   ;
+//    private AudioPlayer audioPlayer;   ;
     public ModeCollision(Car car1, Car car2, AudioPlayer audioPlayer) {
         super(car1, car2);
 //        if(audioPlayer == null) {
 //            this.audioPlayer = new AudioPlayer();
 //        } else {
-        this.audioPlayer = audioPlayer;
+//        this.audioPlayer = audioPlayer;
 //    }
 }
 
