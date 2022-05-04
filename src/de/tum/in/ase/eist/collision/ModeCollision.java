@@ -11,11 +11,12 @@ public class ModeCollision extends Collision {
     private AudioPlayer audioPlayer = new AudioPlayer()   ;
     public ModeCollision(Car car1, Car car2, AudioPlayer audioPlayer) {
         super(car1, car2);
-        if(audioPlayer == null) {
-            this.audioPlayer = new AudioPlayer();
-        } else {
+//        if(audioPlayer == null) {
+//            this.audioPlayer = new AudioPlayer();
+//        } else {
         this.audioPlayer = audioPlayer;
-    }}
+//    }
+}
 
     public boolean detectCollision() {
         Point2D p1 = getCar1().getPosition();
@@ -46,15 +47,15 @@ public class ModeCollision extends Collision {
             loserCar.decreaseLife();
             loserCar.setPosition(500, 0);
             loserCar.setDirection(180);
-            AudioPlayer a = new AudioPlayer();
-            a.playCrashSound();
+//            AudioPlayer a = new AudioPlayer();
+//            a.playCrashSound();
 
             return false;
         } else if (loserCar.getLifes() == 1) {
             loserCar.decreaseLife();
 
-            AudioPlayer a = new AudioPlayer();
-            a.playKOSound();return  true;
+//            AudioPlayer a = new AudioPlayer();
+//            a.playKOSound();return  true;
         } else {
             return false;
         }
