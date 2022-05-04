@@ -3,16 +3,11 @@ package de.tum.in.ase.eist;
 import de.tum.in.ase.eist.gameview.GameBoardUI;
 import de.tum.in.ase.eist.gameview.GameToolBar;
 import javafx.application.Application;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import java.awt.event.KeyEvent;
-import java.security.Key;
 
 /**
  * Starts the Bumpers Application, loads the GameToolBar and GameBoardUI. This

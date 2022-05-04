@@ -1,12 +1,9 @@
 package de.tum.in.ase.eist.gameview;
 
-import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
-import java.security.Key;
 import java.util.Optional;
 
 /**

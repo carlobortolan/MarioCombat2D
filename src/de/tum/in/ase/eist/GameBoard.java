@@ -1,14 +1,16 @@
 package de.tum.in.ase.eist;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import de.tum.in.ase.eist.audio.AudioPlayer;
 import de.tum.in.ase.eist.audio.AudioPlayerInterface;
-import de.tum.in.ase.eist.car.*;
+import de.tum.in.ase.eist.car.BowserCar;
+import de.tum.in.ase.eist.car.Car;
+import de.tum.in.ase.eist.car.DonkeyKongCar;
+import de.tum.in.ase.eist.car.FastCar;
 import de.tum.in.ase.eist.collision.Collision;
-//import de.tum.in.ase.eist.collision.DefaultCollision;
 import de.tum.in.ase.eist.collision.ModeCollision;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Creates all car objects, detects collisions, updates car positions, notifies

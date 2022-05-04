@@ -1,11 +1,5 @@
 package de.tum.in.ase.eist.gameview;
 
-import java.net.URL;
-import java.security.Key;
-import java.util.HashMap;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import de.tum.in.ase.eist.Dimension2D;
 import de.tum.in.ase.eist.GameBoard;
 import de.tum.in.ase.eist.GameOutcome;
@@ -14,12 +8,17 @@ import de.tum.in.ase.eist.audio.AudioPlayer;
 import de.tum.in.ase.eist.car.Car;
 import de.tum.in.ase.eist.usercontrol.MouseSteering;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
-import javafx.scene.input.*;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
+
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**

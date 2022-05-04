@@ -1,9 +1,9 @@
 package de.tum.in.ase.eist.car;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import de.tum.in.ase.eist.Dimension2D;
 import de.tum.in.ase.eist.Point2D;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Abstract class for cars. Objects for this class cannot be instantiated.

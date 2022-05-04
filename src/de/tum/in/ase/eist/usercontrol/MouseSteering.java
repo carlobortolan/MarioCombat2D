@@ -2,10 +2,8 @@ package de.tum.in.ase.eist.usercontrol;
 
 import de.tum.in.ase.eist.Point2D;
 import de.tum.in.ase.eist.car.Car;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.input.KeyCode;
 
 /**
  * This class is responsible for the handling the MOUSE_PRESSED Event, i.e. the
