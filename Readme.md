@@ -26,7 +26,7 @@ DAMAGE SYSTEM:
     Every character has a special ability:
         - Mario (the Player) can select his speed by scrolling up (accelerate) and down (decellerate) on the mousewheel.
         - Bowser's attack subtracts two lifes from the loser of the collision, but is therefore limited to a maximum 
-          speed of 4
+          speed of 3
         - Donkey Kong is a normal character and can reach a maximum speed of 8. 
 
 GAME MODES:
