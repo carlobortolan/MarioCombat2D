@@ -5,9 +5,13 @@ import de.tum.in.ase.eist.gameview.GameToolBar;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.util.Optional;
 
 /**
  * Starts the Bumpers Application, loads the GameToolBar and GameBoardUI. This
@@ -34,6 +38,28 @@ public class BumpersApplication extends Application {
 		GameToolBar toolBar = new GameToolBar();
 		GameBoardUI gameBoardUI = new GameBoardUI(toolBar, false);
 		toolBar.initializeActions(gameBoardUI);
+
+
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Have you read the instructions on the provided readme File?", ButtonType.YES,
+				ButtonType.NO);
+		alert.setTitle("CONFIRM INSTUCTIONS");
+		// By default the header additionally shows the Alert Type (Confirmation)
+		// but we want to disable this to only show the question
+		alert.setHeaderText("");
+
+		Optional<ButtonType> result = alert.showAndWait();
+		// reference equality check is OK here because the result will return the same
+		// instance of the ButtonType
+		if (result.isPresent() && result.get() == ButtonType.YES) {
+
+		} else if(result.get() == ButtonType.NO){
+			Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION, "Please read the instructions on the provided readme File", ButtonType.YES,
+					ButtonType.NO);
+			alert2.setTitle("CONFIRM INSTUCTIONS");
+			alert2.setHeaderText("");
+
+			alert2.show();
+		}
 
 //		toolBar.getMultiPlayerON().setOnAction(event -> {
 //
