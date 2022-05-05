@@ -14,7 +14,7 @@ public class BowserCar extends Car {
     private static final String BOWSER_CAR_IMAGE_FILEL3 = "BowserCarL3.png";
 
     private static final int MIN_SPEED_BOWSER_CAR = 2;
-    private static final int MAX_SPEED_BOWSER_CAR = 6;
+    private static final int MAX_SPEED_BOWSER_CAR = 3;
 
     @Override
     public String getIconLocation() {

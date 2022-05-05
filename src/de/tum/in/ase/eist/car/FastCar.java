@@ -13,8 +13,8 @@ public class FastCar extends Car {
 	private static final String MARIO_CAR_IMAGE_FILEL2 = "MarioCarL2.png";
 	private static final String MARIO_CAR_IMAGE_FILEL3 = "MarioCarL3.png";
 
-	private static final int MIN_SPEED_Mario_CAR = 2;
-	private static final int MAX_SPEED_Mario_CAR = 6;
+	private static final int MIN_SPEED_Mario_CAR = 1;
+	private static final int MAX_SPEED_Mario_CAR = 10;
 
 	@Override
 	public String getIconLocation() {

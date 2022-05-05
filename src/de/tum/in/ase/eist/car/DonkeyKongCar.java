@@ -13,8 +13,8 @@ public class DonkeyKongCar extends Car {
     private static final String DONKEYKONG_CAR_IMAGE_FILEL2 = "DonkeyKongCarL2.png";
     private static final String DONKEYKONG_CAR_IMAGE_FILEL3 = "DonkeyKongCarL3.png";
 
-    private static final int MIN_SPEED_DONKEYKONG_CAR = 2;
-    private static final int MAX_SPEED_DONKEYKONG_CAR = 6;
+    private static final int MIN_SPEED_DONKEYKONG_CAR = 4;
+    private static final int MAX_SPEED_DONKEYKONG_CAR = 8;
 
     @Override
     public String getIconLocation() {

@@ -2,9 +2,11 @@ package de.tum.in.ase.eist.collision;
 
 import de.tum.in.ase.eist.Dimension2D;
 import de.tum.in.ase.eist.Point2D;
+import de.tum.in.ase.eist.car.BowserCar;
 import de.tum.in.ase.eist.car.Car;
 
 public class ModeCollision extends Collision {
+    private static int i = 1;
 
 //    private AudioPlayer audioPlayer;   ;
     public ModeCollision(Car car1, Car car2) {
@@ -42,9 +44,25 @@ public class ModeCollision extends Collision {
         }
 
         if (loserCar.getLifes() > 1) {
+
+            if(winnerCar instanceof BowserCar) {
+
+
+                if(loserCar.getLifes() == 2) {
+                    loserCar.decreaseLife();
+                    loserCar.decreaseLife();
+                    return true;
+                }
+
+                loserCar.decreaseLife();
+
+            }
+
             loserCar.decreaseLife();
-            loserCar.setPosition(500, 0);
-            loserCar.setDirection(180);
+            System.out.println(i);
+            loserCar.setPosition((i%3)*500+200, 0);
+            ++i;
+            loserCar.setDirection(200);
 //            AudioPlayer a = new AudioPlayer();
 //            a.playCrashSound();
 

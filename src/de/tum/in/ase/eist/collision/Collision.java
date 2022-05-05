@@ -15,7 +15,7 @@ public abstract class Collision {
         this.car1 = car1;
         this.car2 = car2;
         this.crash = detectCollision();
-        System.out.println(this.isCrash());
+//        System.out.println(this.isCrash());
     }
 
     public boolean isCrash() {

@@ -59,8 +59,8 @@ public class GameToolBar extends ToolBar {
 			if (result.isPresent() && result.get() == ButtonType.YES) {
 				// reset the game board to prepare the new game
 				gameBoardUI.setup(false);
-				this.multiPlayerON.setDisable(true);
-				this.multiPlayerOFF.setDisable(false);
+				this.multiPlayerON.setDisable(false);
+				this.multiPlayerOFF.setDisable(true);
 			} else {
 				// continue running
 				gameBoardUI.startGame();
