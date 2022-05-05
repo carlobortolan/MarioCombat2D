@@ -59,7 +59,6 @@ public class ModeCollision extends Collision {
             }
 
             loserCar.decreaseLife();
-            System.out.println(i);
             loserCar.setPosition((i%3)*500+200, 0);
             ++i;
             loserCar.setDirection(200);

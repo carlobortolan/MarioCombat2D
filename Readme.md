@@ -5,6 +5,9 @@ SETUP:
     To play the game at its full potential you only need to change two attributes in the car.java Class:
         - DEFAULT_CAR_WIDTH = 50 -> DEFAULT_CAR_WIDTH = 150
         - DEFAULT_CAR_HEIGHT = 25 -> DEFAULT_CAR_HEIGHT = 150
+    This is due to the issue that in order to pass the Artemis tests you cannot change the proportions of your car which
+    means that by using the original proportions given to us the characters look distorted (the game is still fully
+    functional and playable even though I highly recommend changing as stated above those two attributes while playing)
 
 CONTORLS
 -
