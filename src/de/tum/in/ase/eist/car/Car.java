@@ -17,8 +17,8 @@ public abstract class Car {
 	// [by changing artemisMode to false the only thing that will change in the implementation are the defaultCarWidth/Height values]
 
 	private static final boolean artemisMode = true;
-	protected static final int DEFAULT_CAR_WIDTH = 50;
-	protected static final int DEFAULT_CAR_HEIGHT = 50;
+	protected static final int DEFAULT_CAR_WIDTH = 100;
+	protected static final int DEFAULT_CAR_HEIGHT = 100;
 
 
 	private int minSpeed;
