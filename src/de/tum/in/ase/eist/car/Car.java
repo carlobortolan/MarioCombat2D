@@ -14,7 +14,6 @@ public abstract class Car {
 	protected static final int HALF_ANGLE = MAX_ANGLE / 2;
 
 //	protected static final int DEFAULT_CAR_WIDTH = 150;
-//
 	protected static final int DEFAULT_CAR_WIDTH = 50;
 //	protected static final int DEFAULT_CAR_HEIGHT = 150;
 	protected static final int DEFAULT_CAR_HEIGHT = 25;

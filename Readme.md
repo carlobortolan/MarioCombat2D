@@ -7,7 +7,7 @@ SETUP:
         - DEFAULT_CAR_HEIGHT = 25 -> DEFAULT_CAR_HEIGHT = 150
     This is due to the issue that in order to pass the Artemis tests you cannot change the proportions of your car which
     means that by using the original proportions given to us the characters look distorted (the game is still fully
-    functional and playable even though I highly recommend changing as stated above those two attributes while playing)
+    functional and playable even though I highly recommend changing as stated above those two attributes before playing)
 
 CONTORLS
 -
@@ -26,14 +26,17 @@ DAMAGE SYSTEM:
     Every character has a special ability:
         - Mario (the Player) can select his speed by scrolling up (accelerate) and down (decellerate) on the mousewheel.
         - Bowser's attack subtracts two lifes from the loser of the collision, but is therefore limited to a maximum 
-          speed of 3
-        - Donkey Kong is a normal character and can reach a maximum speed of 8. 
-
+          speed of 3.
+        - Donkey Kong does the same damage as Mario and can reach a maximum speed of 12. 
+    //Note: Keep in mind that the hitbox of the characters is rather big due to the display of the remaining lifes.
+    //You can increase the difficulty of the game by adding more "cars" in the GameBoard.java class in line 24/25. 
+    //In case the game is too difficult you can try out the CheatMode by pressing on the small arrow in the Topbar ;)
 GAME MODES:
 - 
     You can choose between a SinglePlayer and a local Multiplayer Mode by selecting the pressing the corrisponing buttons 
     on the topbar.
-    The SinglePlayer Mode works just as the one given to us and shown in the lecture.
+    The SinglePlayer Mode works just as the one given to us and shown in the lecture. You play as Mario and have to 
+    fight/crash against Bowser and DonkeyKong.
     The Multiplayer Mode supports two players on the same device and features a 1vs1 game.
     Initially I wanted to have the second player use keyboard controls, but due to technical issues all game controls are 
     limited to the mouse.

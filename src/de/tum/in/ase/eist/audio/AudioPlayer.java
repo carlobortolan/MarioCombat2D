@@ -14,11 +14,14 @@ public class AudioPlayer implements AudioPlayerInterface {
 	private static final String BACKGROUND_MUSIC_FILE = "MarioKart.mp3";
 	private static final String CRASH_SOUND_FILE = "Crash.mp3";
 	private static final String KO_SOUND_FILE = "KO.mp3";
+	private static final String CHEAT_SOUND_FILE = "Cheat.mp3";
 
 	private static final double CRASH_SOUND_VOLUME = 0.5;
 
 	private final MediaPlayer musicPlayer;
 	private final AudioClip crashPlayer;
+
+	private final AudioClip cheatPlayer;
 	private final AudioClip KOPlayer;
 
 	/**
@@ -29,6 +32,7 @@ public class AudioPlayer implements AudioPlayerInterface {
 		this.musicPlayer = new MediaPlayer(loadAudioFile(BACKGROUND_MUSIC_FILE));
 		this.crashPlayer = new AudioClip(convertNameToUrl(CRASH_SOUND_FILE));
 		this.KOPlayer = new AudioClip(convertNameToUrl(KO_SOUND_FILE));
+		this.cheatPlayer = new AudioClip(convertNameToUrl(CHEAT_SOUND_FILE));
 	}
 
 	@Override
@@ -46,6 +50,9 @@ public class AudioPlayer implements AudioPlayerInterface {
 		if (isPlayingBackgroundMusic()) {
 			this.musicPlayer.stop();
 		}
+	}	@Override
+	public void stopCheatMusic() {
+			this.cheatPlayer.stop();
 	}
 
 	@Override
@@ -60,6 +67,9 @@ public class AudioPlayer implements AudioPlayerInterface {
 
 	public void playKOSound() {
 		this.KOPlayer.play(2);
+	}
+	public void playCheatSound() {
+		this.cheatPlayer.play(2);
 	}
 
 	private Media loadAudioFile(String fileName) {

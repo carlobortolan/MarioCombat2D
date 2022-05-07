@@ -2,6 +2,7 @@ package de.tum.in.ase.eist.usercontrol;
 
 import de.tum.in.ase.eist.Point2D;
 import de.tum.in.ase.eist.car.Car;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 
@@ -58,5 +59,9 @@ public class MouseSteering {
 			degree = ANGLE_270_DEGREES + degree;
 		}
 		userCar.setDirection(degree);
+	}
+
+	public void keyPressed(KeyEvent e) {
+		System.out.println("e = " + e);
 	}
 }

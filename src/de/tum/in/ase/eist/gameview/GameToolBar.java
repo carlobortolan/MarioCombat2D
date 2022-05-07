@@ -1,15 +1,18 @@
 package de.tum.in.ase.eist.gameview;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
 
+import javax.swing.border.EmptyBorder;
 import java.util.Optional;
 
 /**
  * This class visualizes the tool bar with start and stop buttons above the game board.
  */
 public class GameToolBar extends ToolBar {
+	private boolean cheating = false;
 	public Button getMultiPlayerON() {
 		return multiPlayerON;
 	}
@@ -21,6 +24,8 @@ public class GameToolBar extends ToolBar {
 	private final Button start;
 	private final Button stop;
 	private final Text text;
+
+	private final Button cheatMode;
 	private final Button multiPlayerON;
 	private final Button multiPlayerOFF;
 
@@ -28,6 +33,7 @@ public class GameToolBar extends ToolBar {
 		this.start = new Button("Start");
 		this.stop = new Button("Stop");
 		this.text = new Text("local MultiPlayer Mode");
+		this.cheatMode = new Button("enable cheats ;)");
 		this.multiPlayerON = new Button("ON");
 		this.multiPlayerOFF = new Button("OFF");
 		this.multiPlayerOFF.setDisable(true);
@@ -35,12 +41,28 @@ public class GameToolBar extends ToolBar {
 		// the game is stopped initially
 		updateToolBarStatus(false);
 		getItems().addAll(this.start, new Separator(), this.stop, new Separator(), this.text, this.multiPlayerON, this.multiPlayerOFF);
+		Text sep = new Text("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+sep.setVisible(false);
+		getItems().addAll(sep, this.cheatMode);
 	}
 
 	/**
 	 * Initializes the actions of the toolbar buttons.
 	 */
 	public void initializeActions(GameBoardUI gameBoardUI) {
+		this.cheatMode.setOnAction(event ->  {
+			if(!cheating) {
+				cheating = true;
+				gameBoardUI.getGameBoard().getAudioPlayer().playCheatSound();
+				gameBoardUI.cheat();
+				gameBoardUI.stopGame();
+			} else {
+				cheating = false;
+				gameBoardUI.getGameBoard().getAudioPlayer().stopCheatMusic();
+				gameBoardUI.stopGame();
+			}
+
+		});
 		this.start.setOnAction(event -> gameBoardUI.startGame());
 		this.stop.setOnAction(event -> {
 			// stop the game while the alert is shown

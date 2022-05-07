@@ -11,14 +11,15 @@ import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.ScrollEvent;
+import javafx.scene.input.*;
 
 import java.net.URL;
+import java.security.spec.ECField;
+import java.sql.Time;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -54,6 +55,7 @@ public class GameBoardUI extends Canvas {
 	private final GameToolBar gameToolBar;
 
 	private MouseSteering mouseSteering;
+	private MouseSteering mouse1Steering;
 	private MouseSteering mouse2Steering;
 
 	private HashMap<String, Image> imageCache;
@@ -82,6 +84,15 @@ public class GameBoardUI extends Canvas {
 		paint();
 	}
 
+	public void cheat() {
+
+//		this.gameTimer = new Timer();
+//		this.gameTimer.scheduleAtFixedRate(TimeUnit.of);
+
+		getGraphicsContext2D().drawImage(getImage("cheatR.png"), 0, 0, getWidth(), getHeight());
+//				getGraphicsContext2D().drawImage(getImage("cheatL.png"), 0, 0, getWidth(), getHeight());
+	}
+
 	private void setupGameBoard(boolean multiplayer) {
 		Dimension2D size = getPreferredSize();
 		this.gameBoard = new GameBoard(size, multiplayer);
@@ -90,33 +101,48 @@ public class GameBoardUI extends Canvas {
 		widthProperty().set(size.getWidth());
 		heightProperty().set(size.getHeight());
 
-		this.mouseSteering = new MouseSteering(this.gameBoard.getPlayerCar());
 
 		if(gameBoard.getMULTIPLAYER_ON()) {
+			this.mouse1Steering = new MouseSteering(this.gameBoard.getPlayerCar());
 			this.mouse2Steering = new MouseSteering(this.gameBoard.getPlayer2Car());
+
+			this.removeEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent clickEvent) -> {
+				this.mouse1Steering.mousePressed(clickEvent);
+			});
+			this.removeEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent clickEvent) -> {
+				this.mouse2Steering.mousePressed(clickEvent);
+			});
+
+			this.addEventHandler(ScrollEvent.SCROLL, (ScrollEvent scrollEvent) -> {
+				this.mouse1Steering.scrollPressed(scrollEvent);
+			});
 
 		this.setOnMouseClicked((MouseEvent e) -> {
 			if (e.getButton() == MouseButton.PRIMARY) {
-				this.mouseSteering.mousePressed(e);
+				System.out.println("PRIMARY");
+				this.mouse1Steering.mousePressed(e);
 			} else if (e.getButton() == MouseButton.SECONDARY) {
+				System.out.println("SECONDARY");
 				this.mouse2Steering.mousePressed(e);
 			}
 			});
 
-//		this.setOnKeyPressed((KeyEvent e) -> {
-//				if (e.getCode() != KeyCode.ALPHANUMERIC) {
-//					this.mouseSteering.keyPressed(e);
-//				} else if (e.getCode() == KeyCode.UP) {
-//					this.mouse2Steering.keyPressed(e);
-//				}
-//		});
+		this.setOnKeyPressed((KeyEvent e) -> {
+				if (e.getCode() != KeyCode.ALPHANUMERIC) {
+					this.mouseSteering.keyPressed(e);
+				} else if (e.getCode() == KeyCode.UP) {
+					this.mouse2Steering.keyPressed(e);
+				}
+		});
 
 		} else {
+//			this.mouseSteering = new MouseSteering(this.gameBoard.getPlayerCar());
 
 //		this.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent e) -> {
 //				this.mouseSteering.keyPressed(e);
 //			});
 //		}
+			this.mouseSteering = new MouseSteering(this.gameBoard.getPlayerCar());
 
 		this.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent clickEvent) -> {
 			this.mouseSteering.mousePressed(clickEvent);

@@ -15,6 +15,7 @@ public interface AudioPlayerInterface {
 	 * Stops the background music if it is currently playing.
 	 */
 	void stopBackgroundMusic();
+	void stopCheatMusic();
 
 	/**
 	 * Checks if the background music is playing.
@@ -29,5 +30,6 @@ public interface AudioPlayerInterface {
 	void playCrashSound();
 
 	void playKOSound();
+	void playCheatSound();
 
 }
