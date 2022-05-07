@@ -14,11 +14,12 @@ public abstract class Car {
 	protected static final int HALF_ANGLE = MAX_ANGLE / 2;
 
 	//TODO Change @artemisMode to false to play the game with correct proportions
+	// [by changing artemisMode to false the only thing that will change in the implementation are the defaultCarWidth/Height values]
+
 	private static final boolean artemisMode = true;
-//	protected static final int DEFAULT_CAR_WIDTH = 150;
 	protected static final int DEFAULT_CAR_WIDTH = 50;
-//	protected static final int DEFAULT_CAR_HEIGHT = 150;
 	protected static final int DEFAULT_CAR_HEIGHT = 25;
+
 
 	private int minSpeed;
 	private int maxSpeed;

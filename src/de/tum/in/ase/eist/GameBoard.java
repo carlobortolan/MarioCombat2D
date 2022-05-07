@@ -32,7 +32,7 @@ public class GameBoard {
 		this.MULTIPLAYER_ON = MULTIPLAYER_ON;
 	}
 
-	//TODO CHANGE TO LOCAL MULTIPLAYER
+	//TODO CHANGE MANUALLY TO LOCAL MULTIPLAYER
 	private boolean MULTIPLAYER_ON = false;
 
 	public boolean getMULTIPLAYER_ON() {
@@ -123,7 +123,6 @@ public class GameBoard {
 	 * them to the cars list.
 	 */
 	private void createCars() {
-		// TODO Backlog Item 6: Add a new car type
 		//for (int i = 0; i < NUMBER_OF_SLOW_CARS; i++) {
 		//	this.cars.add(new SlowCar(this.size));
 		//}
@@ -283,7 +282,6 @@ public class GameBoard {
 				continue;
 			}
 
-			// TODO Backlog Item 16: Add a new collision type
 			/*
 			 * Hint: Make sure to create a subclass of the class Collision and store it in
 			 * the new Collision package. Create a new collision object and check if the
@@ -318,9 +316,7 @@ public class GameBoard {
 
 				this.audioPlayer.playCrashSound();
 
-				// TODO Backlog Item 11: The loser car is crunched and stops driving
 				loser.crunch();
-				// TODO Backlog Item 11: The player gets notified when he looses or wins the game
 				if (player.getCar().equals(winner) && this.getLoserCars().size() == this.getCars().size() && this.isWinner()) {
 					System.out.println("Player 1 has won the game!");
 					this.gameOutcome = GameOutcome.WON;

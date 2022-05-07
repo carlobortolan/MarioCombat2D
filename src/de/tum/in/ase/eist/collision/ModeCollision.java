@@ -79,7 +79,7 @@ public class ModeCollision extends Collision {
 
     public Car evaluate() {
 
-        // TODO Backlog Item 11: Collisions follow the "right before left" rule, and thus right-most
+        //  Backlog Item 11: Collisions follow the "right before left" rule, and thus right-most
         // cars on the screen win the collisions
 
         Point2D p1 = getCar1().getPosition();

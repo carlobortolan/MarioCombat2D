@@ -254,7 +254,6 @@ public class GameBoardUI extends Canvas {
 	 * game board at render each of them individually.
 	 */
 	private void paint() {
-		//TODO testtest
 		//getGraphicsContext2D().fillRect(0, 0, getWidth(), getHeight());
 		getGraphicsContext2D().drawImage(getImage("background.png"), 0, 0, getWidth(), getHeight());
 		//getGraphicsContext2D().setFill(BACKGROUND_COLOR);
