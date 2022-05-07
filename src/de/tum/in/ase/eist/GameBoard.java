@@ -101,7 +101,7 @@ public class GameBoard {
 
 	public GameBoard(Dimension2D size, boolean multiPlayer) {
 		this.size = size;
-		FastCar playerCar = new FastCar(size);
+		FastCar playerCar = new FastCar(size, true);
 		this.player = new Player(playerCar);
 		this.player.setup();
 //		System.out.println("TEST");
