@@ -87,7 +87,8 @@ public class BumpersApplication extends Application {
 
 		// scene and stages
 		Scene scene = new Scene(gridLayout);
-		primaryStage.setTitle("Bumpers");
+//		primaryStage.setTitle("Bumpers");
+		primaryStage.setTitle("Super Mario Combat");
 		primaryStage.setScene(scene);
 		primaryStage.setOnCloseRequest(closeEvent -> gameBoardUI.stopGame());
 		primaryStage.show();
