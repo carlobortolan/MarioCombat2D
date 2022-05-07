@@ -13,8 +13,8 @@ public abstract class Car {
 	protected static final int MAX_ANGLE = 360;
 	protected static final int HALF_ANGLE = MAX_ANGLE / 2;
 
-	protected static final int DEFAULT_CAR_WIDTH = 50;
-	protected static final int DEFAULT_CAR_HEIGHT = 50;
+	protected static final int DEFAULT_CAR_WIDTH = 60;
+	protected static final int DEFAULT_CAR_HEIGHT = 60;
 
 
 	private int minSpeed;
