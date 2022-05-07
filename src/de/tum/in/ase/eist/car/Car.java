@@ -13,10 +13,10 @@ public abstract class Car {
 	protected static final int MAX_ANGLE = 360;
 	protected static final int HALF_ANGLE = MAX_ANGLE / 2;
 
-	protected static final int DEFAULT_CAR_WIDTH = 150;
-//	protected static final int DEFAULT_CAR_WIDTH = 50;
-	protected static final int DEFAULT_CAR_HEIGHT = 150;
-//	protected static final int DEFAULT_CAR_HEIGHT = 25;
+//	protected static final int DEFAULT_CAR_WIDTH = 150;
+	protected static final int DEFAULT_CAR_WIDTH = 50;
+//	protected static final int DEFAULT_CAR_HEIGHT = 150;
+	protected static final int DEFAULT_CAR_HEIGHT = 25;
 
 	private int minSpeed;
 	private int maxSpeed;
@@ -43,6 +43,10 @@ public abstract class Car {
 
 
 	private Dimension2D size = new Dimension2D(DEFAULT_CAR_WIDTH, DEFAULT_CAR_HEIGHT);
+
+	public void setSize(int a, int b) {
+		this.size = new Dimension2D(a, b);
+	}
 
 	/**
 	 * Constructor, taking the maximum coordinates of the game board. Each car gets

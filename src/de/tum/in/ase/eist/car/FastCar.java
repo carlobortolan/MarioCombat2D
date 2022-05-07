@@ -3,7 +3,6 @@ package de.tum.in.ase.eist.car;
 import de.tum.in.ase.eist.Dimension2D;
 
 public class FastCar extends Car {
-
 	private static final String MARIO_CAR_IMAGE_FILER0 = "MarioCarR0.png";
 	private static final String MARIO_CAR_IMAGE_FILER1 = "MarioCarR1.png";
 	private static final String MARIO_CAR_IMAGE_FILER2 = "MarioCarR2.png";
@@ -28,6 +27,7 @@ public class FastCar extends Car {
 
 	public  FastCar(Dimension2D gameBoardSize) {
 		super(gameBoardSize);
+		super.setSize(150, 150);
 		setMinSpeed(MIN_SPEED_Mario_CAR);
 		setMaxSpeed(MAX_SPEED_Mario_CAR);
 		setRandomSpeed();

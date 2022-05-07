@@ -40,3 +40,15 @@ GAME MODES:
     The Multiplayer Mode supports two players on the same device and features a 1vs1 game.
     Initially I wanted to have the second player use keyboard controls, but due to technical issues all game controls are 
     limited to the mouse.
+COPYRIGHT
+- 
+    The used graphics, images and soundeffects are from the following sources:
+        - https://www.youtube.com/watch?v=-ytaJRn0RSU
+        - https://www.youtube.com/watch?v=Pyqswng2xtA
+        - https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        - https://nintendo-connect.de/heimkonsole/nintendo-switch/super-smash-bros-ultimate-stage-des-tages-schlachtfeld-mario-35722/#jp-carousel-35732
+        - https://www.pikpng.com/pngvi/wJmioJ_transparent-donkey-kong-donkey-kong-png-transparent-clipart/
+        - https://pngset.com/download-free-png-rszgr
+        - https://www.pngwing.com/de/free-png-nezyf/download
+        - https://imgbin.com/png/PKxXzUeL/minecraft-video-game-health-png
+        - https://www.kindpng.com/imgv/ihxTJib_street-fighter-ko-png-street-fighter-ko-transparent/
