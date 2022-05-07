@@ -27,7 +27,7 @@ public class FastCar extends Car {
 
 	public  FastCar(Dimension2D gameBoardSize) {
 		super(gameBoardSize);
-		super.setSize(150, 150);
+		this.setSize(150, 150);
 		setMinSpeed(MIN_SPEED_Mario_CAR);
 		setMaxSpeed(MAX_SPEED_Mario_CAR);
 		setRandomSpeed();
