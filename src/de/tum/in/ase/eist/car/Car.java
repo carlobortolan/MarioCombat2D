@@ -18,7 +18,7 @@ public abstract class Car {
 
 	private static final boolean artemisMode = true;
 	protected static final int DEFAULT_CAR_WIDTH = 50;
-	protected static final int DEFAULT_CAR_HEIGHT = 25;
+	protected static final int DEFAULT_CAR_HEIGHT = 50;
 
 
 	private int minSpeed;
