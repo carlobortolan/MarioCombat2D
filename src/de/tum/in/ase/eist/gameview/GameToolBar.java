@@ -141,6 +141,7 @@ sep.setVisible(false);
 			// instance of the ButtonType
 			if (result.isPresent() && result.get() == ButtonType.YES) {
 				// reset the game board to prepare the new game
+
 				gameBoardUI.setup(false, bowser, dk);
 				this.multiPlayerON.setDisable(false);
 				this.multiPlayerOFF.setDisable(true);
@@ -182,6 +183,7 @@ sep.setVisible(false);
 	 */
 	public void updateToolBarStatus(boolean running) {
 		this.start.setDisable(running);
+
 		this.stop.setDisable(!running);
 //		this.multiPlayerON.setDisable(running);
 //		this.multiPlayerOFF.setDisable(running);

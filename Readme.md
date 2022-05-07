@@ -1,13 +1,4 @@
 short instruction for my "Bumpers" Game:
-    
-SETUP:
-- 
-    To play the game at its full potential you only need to set the following variable in the car.java Class to false:
-        artemisMode = true; ---> artemisMode = false;
-    This is due to the issue that in order to pass the Artemis tests you cannot change the proportions of your car which
-    means that by using the original proportions given to us the characters look distorted. The game is still fully
-    functional and playable even though I highly recommend setting it to false before playing as the game becomes way 
-    more enjoyable then, thank you:)
 
 CONTORLS
 -

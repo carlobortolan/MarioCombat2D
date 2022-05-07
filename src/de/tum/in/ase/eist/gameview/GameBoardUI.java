@@ -77,7 +77,7 @@ private static final int DEFAULT_WIDTH = 1000;
 	 * reset to default starting position. Renders graphics.
 	 */
 	public void setup(boolean multiplayer, int bowser, int dk) {
-		System.out.println("AAmultiplayer = " + multiplayer + ", bowser = " + bowser + ", dk = " + dk);
+//		System.out.println("AAmultiplayer = " + multiplayer + ", bowser = " + bowser + ", dk = " + dk);
 		setupGameBoard(multiplayer, bowser, dk);
 		setupImageCache();
 		this.gameToolBar.updateToolBarStatus(false);
@@ -119,10 +119,10 @@ private static final int DEFAULT_WIDTH = 1000;
 
 		this.setOnMouseClicked((MouseEvent e) -> {
 			if (e.getButton() == MouseButton.PRIMARY) {
-				System.out.println("PRIMARY");
+//				System.out.println("PRIMARY");
 				this.mouse1Steering.mousePressed(e);
 			} else if (e.getButton() == MouseButton.SECONDARY) {
-				System.out.println("SECONDARY");
+//				System.out.println("SECONDARY");
 				this.mouse2Steering.mousePressed(e);
 			}
 			});
@@ -243,6 +243,7 @@ private static final int DEFAULT_WIDTH = 1000;
 	 */
 	public void stopGame() {
 		if (this.gameBoard.isRunning()) {
+//			System.out.println(GameBoard.getNumberOfBowserCars() + " " + GameBoard.getNumberOfDonkeykongCars());
 			this.gameBoard.stopGame();
 			this.gameToolBar.updateToolBarStatus(false);
 			this.gameTimer.cancel();
@@ -296,7 +297,7 @@ private static final int DEFAULT_WIDTH = 1000;
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setHeaderText(message);
 			alert.showAndWait();
-			this.setup(false, 1, 1);
+			this.setup(false, GameBoard.getNumberOfBowserCars(), GameBoard.getNumberOfDonkeykongCars());
 		});
 	}
 }

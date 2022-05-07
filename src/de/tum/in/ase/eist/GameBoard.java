@@ -18,13 +18,21 @@ import java.util.List;
  */
 public class GameBoard {
 
-//	private static final int NUMBER_OF_SLOW_CARS = 0;
+	public static int getNumberOfBowserCars() {
+		return NUMBER_OF_BOWSER_CARS;
+	}
+
+	public static int getNumberOfDonkeykongCars() {
+		return NUMBER_OF_DONKEYKONG_CARS;
+	}
+
+	//	private static final int NUMBER_OF_SLOW_CARS = 0;
 	//private static final int NUMBER_OF_TESLA_CARS = 0;
 //	private static final int NUMBER_OF_MARIO_CARS = 1;
 //	private static final int NUMBER_OF_BOWSER_CARS = 1;
-	private static int NUMBER_OF_BOWSER_CARS = 1;
+	private static int NUMBER_OF_BOWSER_CARS = 0;
 //	private static final int NUMBER_OF_DONKEYKONG_CARS =1;
-	private static int NUMBER_OF_DONKEYKONG_CARS =1;
+	private static int NUMBER_OF_DONKEYKONG_CARS =0;
 
 	public boolean isMULTIPLAYER_ON() {
 		return MULTIPLAYER_ON;
@@ -119,7 +127,7 @@ public class GameBoard {
 
 		createCars();
 	}	public GameBoard(Dimension2D size, boolean multiPlayer, int bowser, int dk) {
-		System.out.println("size = " + size + ", multiPlayer = " + multiPlayer + ", bowser = " + bowser + ", dk = " + dk);
+//		System.out.println("size = " + size + ", multiPlayer = " + multiPlayer + ", bowser = " + bowser + ", dk = " + dk);
 		this.size = size;
 		NUMBER_OF_BOWSER_CARS = bowser;
 		NUMBER_OF_DONKEYKONG_CARS = dk;
