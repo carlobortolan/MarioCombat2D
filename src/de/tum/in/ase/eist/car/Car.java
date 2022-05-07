@@ -45,7 +45,7 @@ public abstract class Car {
 	private Dimension2D size = new Dimension2D(DEFAULT_CAR_WIDTH, DEFAULT_CAR_HEIGHT);
 
 	public void setSize(int a, int b) {
-//		this.size = new Dimension2D(a, b);
+		this.size = new Dimension2D(a, b);
 	}
 
 	/**
