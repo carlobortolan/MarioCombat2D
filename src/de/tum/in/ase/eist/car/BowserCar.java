@@ -28,7 +28,7 @@ public class BowserCar extends Car {
 
     public  BowserCar(Dimension2D gameBoardSize) {
         super(gameBoardSize);
-        this.setSize(150, 150);
+//        this.setSize(150, 150);
         setMinSpeed(MIN_SPEED_BOWSER_CAR);
         setMaxSpeed(MAX_SPEED_BOWSER_CAR);
         setRandomSpeed();

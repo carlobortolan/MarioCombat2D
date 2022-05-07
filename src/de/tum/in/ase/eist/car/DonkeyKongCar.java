@@ -28,7 +28,7 @@ public class DonkeyKongCar extends Car {
 
     public  DonkeyKongCar(Dimension2D gameBoardSize) {
         super(gameBoardSize);
-        this.setSize(150, 150);
+//        this.setSize(150, 150);
         setMinSpeed(MIN_SPEED_DONKEYKONG_CAR);
         setMaxSpeed(MAX_SPEED_DONKEYKONG_CAR);
         setRandomSpeed();
