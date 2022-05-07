@@ -25,6 +25,21 @@ public class FastCar extends Car {
 		}
 	}
 
+	public  FastCar(Dimension2D gameBoardSize, boolean tmp) {
+		super(gameBoardSize);
+		this.setSize(150, 150);
+		setMinSpeed(MIN_SPEED_Mario_CAR);
+		setMaxSpeed(MAX_SPEED_Mario_CAR);
+		setRandomSpeed();
+		setIconL0(MARIO_CAR_IMAGE_FILEL0);
+		setIconL1(MARIO_CAR_IMAGE_FILEL1);
+		setIconL2(MARIO_CAR_IMAGE_FILEL2);
+		setIconL3(MARIO_CAR_IMAGE_FILEL3);
+		setIconR0(MARIO_CAR_IMAGE_FILER0);
+		setIconR1(MARIO_CAR_IMAGE_FILER1);
+		setIconR2(MARIO_CAR_IMAGE_FILER2);
+		setIconR3(MARIO_CAR_IMAGE_FILER3);
+	}
 	public  FastCar(Dimension2D gameBoardSize) {
 		super(gameBoardSize);
 //		this.setSize(150, 150);
