@@ -23,7 +23,7 @@ public abstract class Car {
 	private int speed;
 	private boolean crunched;
 
-	private int lifes = 3;
+	private int lives = 3;
 
 	private Point2D position;
 	/**
@@ -182,24 +182,24 @@ public abstract class Car {
 //	if(this.getDirection() > 180) {
 //
 //		if(this instanceof BowserCar) {
-//			return "BowserCarL" + this.lifes + ".png";
+//			return "BowserCarL" + this.lives + ".png";
 //
 //		} else if(this instanceof FastCar) {
-//			return "MarioCarL" + this.lifes + ".png";
+//			return "MarioCarL" + this.lives + ".png";
 //
 //		} else if (this instanceof DonkeyKongCar) {
-//			return "DonkeyKongCarL" + this.lifes +".png" + "";
+//			return "DonkeyKongCarL" + this.lives +".png" + "";
 //		}
 //	}
 //	else {
 //		if(this instanceof BowserCar) {
-//			return "BowserCarR" + this.lifes + ".png";
+//			return "BowserCarR" + this.lives + ".png";
 //
 //		} else if(this instanceof FastCar) {
-//			return "MarioCarR" + this.lifes + ".png";
+//			return "MarioCarR" + this.lives + ".png";
 //
 //		} else if (this instanceof DonkeyKongCar) {
-//			return "DonkeyKongCarR" + this.lifes +".a" + "" + "png" + "\r\n";
+//			return "DonkeyKongCarR" + this.lives +".a" + "" + "png" + "\r\n";
 //		}
 //
 //	}
@@ -293,16 +293,16 @@ public abstract class Car {
 		return ThreadLocalRandom.current().nextDouble(minValue, maxValue);
 	}
 
-	public void setLifes(int lifes) {
-		this.lifes = lifes;
+	public void setLives(int lives) {
+		this.lives = lives;
 	}
-	public int getLifes() {
-		return this.lifes;
+	public int getLives() {
+		return this.lives;
 	}
 
 	public void decreaseLife() {
-		if(this.getLifes() != 0) {
-			setLifes(getLifes()-1);
+		if(this.getLives() != 0) {
+			setLives(getLives()-1);
 		}
 	}
 

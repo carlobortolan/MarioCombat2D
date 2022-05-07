@@ -101,7 +101,7 @@ public class GameBoard {
 
 	public GameBoard(Dimension2D size, boolean multiPlayer) {
 		this.size = size;
-		FastCar playerCar = new FastCar(size, true);
+		FastCar playerCar = new FastCar(size);
 		this.player = new Player(playerCar);
 		this.player.setup();
 //		System.out.println("TEST");
@@ -132,11 +132,11 @@ public class GameBoard {
 //		}
 		if(!getMULTIPLAYER_ON()) {
 
-//		for (int i = 0; i < NUMBER_OF_DONKEYKONG_CARS; i++) {
-//			this.cars.add(new DonkeyKongCar(this.size));
-//		}	for (int i = 0; i < NUMBER_OF_BOWSER_CARS; i++) {
-//			this.cars.add(new BowserCar(this.size));
-//		}
+		for (int i = 0; i < NUMBER_OF_DONKEYKONG_CARS; i++) {
+			this.cars.add(new DonkeyKongCar(this.size));
+		}	for (int i = 0; i < NUMBER_OF_BOWSER_CARS; i++) {
+			this.cars.add(new BowserCar(this.size));
+		}
 		}
 	}
 

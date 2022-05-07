@@ -43,12 +43,12 @@ public class ModeCollision extends Collision {
             loserCar = this.getCar1();
         }
 
-        if (loserCar.getLifes() > 1) {
+        if (loserCar.getLives() > 1) {
 
             if(winnerCar instanceof BowserCar) {
 
 
-                if(loserCar.getLifes() == 2) {
+                if(loserCar.getLives() == 2) {
                     loserCar.decreaseLife();
                     loserCar.decreaseLife();
                     return true;
@@ -66,7 +66,7 @@ public class ModeCollision extends Collision {
 //            a.playCrashSound();
 
             return false;
-        } else if (loserCar.getLifes() == 1) {
+        } else if (loserCar.getLives() == 1) {
             loserCar.decreaseLife();
 
 //            AudioPlayer a = new AudioPlayer();

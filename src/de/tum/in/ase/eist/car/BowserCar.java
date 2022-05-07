@@ -20,10 +20,10 @@ public class BowserCar extends Car {
     @Override
     public String getIconLocation() {
         if(this.getDirection() > 180) {
-            return "BowserCarL" + this.getLifes() + ".png";
+            return "BowserCarL" + this.getLives() + ".png";
         }
         else {
-            return "BowserCarR" + this.getLifes() + ".png";
+            return "BowserCarR" + this.getLives() + ".png";
         }
     }
 

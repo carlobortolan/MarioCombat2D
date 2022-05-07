@@ -19,10 +19,10 @@ public class DonkeyKongCar extends Car {
     @Override
     public String getIconLocation() {
         if(this.getDirection() > 180) {
-            return "DonkeyKongCarL" + this.getLifes() + ".png";
+            return "DonkeyKongCarL" + this.getLives() + ".png";
         }
         else {
-            return "DonkeyKongCarR" + this.getLifes() + ".png";
+            return "DonkeyKongCarR" + this.getLives() + ".png";
         }
     }
 

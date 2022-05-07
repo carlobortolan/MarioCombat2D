@@ -21,14 +21,14 @@ CONTORLS
 
 DAMAGE SYSTEM:
 -
-    Every character has three lifes. 
+    Every character has three lives. 
     When you loose all three of them, you've lost the game.
     Every character has a special ability:
         - Mario (the Player) can select his speed by scrolling up (accelerate) and down (decellerate) on the mousewheel.
-        - Bowser's attack subtracts two lifes from the loser of the collision, but is therefore limited to a maximum 
+        - Bowser's attack subtracts two lives from the loser of the collision, but is therefore limited to a maximum 
           speed of 3.
         - Donkey Kong does the same damage as Mario and can reach a maximum speed of 12. 
-    //Note: Keep in mind that the hitbox of the characters is rather big due to the display of the remaining lifes.
+    //Note: Keep in mind that the hitbox of the characters is rather big due to the display of the remaining lives.
     //You can increase the difficulty of the game by adding more "cars" in the GameBoard.java class in line 24/25. 
     //In case the game is too difficult you can try out the CheatMode by pressing on the small arrow in the Topbar ;)
 GAME MODES:
