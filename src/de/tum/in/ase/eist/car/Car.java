@@ -17,6 +17,7 @@ public abstract class Car {
 	protected static final int DEFAULT_CAR_HEIGHT = 150;
 //	protected static final int DEFAULT_CAR_HEIGHT = 25;
 
+
 	private int minSpeed;
 	private int maxSpeed;
 	private int speed;
