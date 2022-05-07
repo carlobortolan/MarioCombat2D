@@ -62,6 +62,6 @@ public class MouseSteering {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		System.out.println("e = " + e);
+//		System.out.println("e = " + e);
 	}
 }

@@ -59,9 +59,9 @@ private static final int DEFAULT_WIDTH = 1000;
 
 	private HashMap<String, Image> imageCache;
 
-	public GameBoardUI(GameToolBar gameToolBar, boolean multiplayer) {
+	public GameBoardUI(GameToolBar gameToolBar, boolean multiplayer, int bowser, int dk) {
 		this.gameToolBar = gameToolBar;
-		setup(multiplayer);
+		setup(multiplayer, bowser, dk);
 	}
 
 	public GameBoard getGameBoard() {
@@ -76,8 +76,9 @@ private static final int DEFAULT_WIDTH = 1000;
 	 * Removes all existing cars from the game board and re-adds them. Player car is
 	 * reset to default starting position. Renders graphics.
 	 */
-	public void setup(boolean multiplayer) {
-		setupGameBoard(multiplayer);
+	public void setup(boolean multiplayer, int bowser, int dk) {
+		System.out.println("AAmultiplayer = " + multiplayer + ", bowser = " + bowser + ", dk = " + dk);
+		setupGameBoard(multiplayer, bowser, dk);
 		setupImageCache();
 		this.gameToolBar.updateToolBarStatus(false);
 		paint();
@@ -92,9 +93,9 @@ private static final int DEFAULT_WIDTH = 1000;
 //				getGraphicsContext2D().drawImage(getImage("cheatL.png"), 0, 0, getWidth(), getHeight());
 	}
 
-	private void setupGameBoard(boolean multiplayer) {
+	private void setupGameBoard(boolean multiplayer, int bowser, int dk) {
 		Dimension2D size = getPreferredSize();
-		this.gameBoard = new GameBoard(size, multiplayer);
+		this.gameBoard = new GameBoard(size, multiplayer, bowser, dk);
 		this.gameBoard.setAudioPlayer(new AudioPlayer());
 
 		widthProperty().set(size.getWidth());
@@ -156,7 +157,7 @@ private static final int DEFAULT_WIDTH = 1000;
 		this.imageCache = new HashMap<>();
 		for (Car car : this.gameBoard.getCars()) {
 			// Loads the image into the cache
-			System.out.println(car.getIconLocation());
+//			System.out.println(car.getIconLocation());
 			getImage(car.getIconLocation());
 		}
 		String playerImageLocation = this.gameBoard.getPlayerCar().getIconLocation();
@@ -183,7 +184,7 @@ private static final int DEFAULT_WIDTH = 1000;
 	 *                         resources folder of the project
 	 */
 	private Image createImage(String carImageFilePath) {
-		System.out.println("carImageFilePath = " + carImageFilePath);
+//		System.out.println("carImageFilePath = " + carImageFilePath);
 
 		URL carImageUrl = getClass().getClassLoader().getResource(carImageFilePath);
 		if (carImageUrl == null) {
@@ -295,7 +296,7 @@ private static final int DEFAULT_WIDTH = 1000;
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setHeaderText(message);
 			alert.showAndWait();
-			this.setup(false);
+			this.setup(false, 1, 1);
 		});
 	}
 }

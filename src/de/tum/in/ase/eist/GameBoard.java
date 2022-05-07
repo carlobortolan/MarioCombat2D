@@ -21,8 +21,10 @@ public class GameBoard {
 //	private static final int NUMBER_OF_SLOW_CARS = 0;
 	//private static final int NUMBER_OF_TESLA_CARS = 0;
 //	private static final int NUMBER_OF_MARIO_CARS = 1;
-	private static final int NUMBER_OF_BOWSER_CARS = 1;
-	private static final int NUMBER_OF_DONKEYKONG_CARS =1;
+//	private static final int NUMBER_OF_BOWSER_CARS = 1;
+	private static int NUMBER_OF_BOWSER_CARS = 1;
+//	private static final int NUMBER_OF_DONKEYKONG_CARS =1;
+	private static int NUMBER_OF_DONKEYKONG_CARS =1;
 
 	public boolean isMULTIPLAYER_ON() {
 		return MULTIPLAYER_ON;
@@ -101,6 +103,26 @@ public class GameBoard {
 
 	public GameBoard(Dimension2D size, boolean multiPlayer) {
 		this.size = size;
+		FastCar playerCar = new FastCar(size);
+		this.player = new Player(playerCar);
+		this.player.setup();
+//		System.out.println("TEST");
+		this.setMULTIPLAYER_ON(multiPlayer);
+
+		if(this.isMULTIPLAYER_ON()) {
+			BowserCar player2Car = new BowserCar(size);
+			this.player2 = new Player2(player2Car);
+			this.player2.setup();
+		} else {
+			player2 = null;
+		}
+
+		createCars();
+	}	public GameBoard(Dimension2D size, boolean multiPlayer, int bowser, int dk) {
+		System.out.println("size = " + size + ", multiPlayer = " + multiPlayer + ", bowser = " + bowser + ", dk = " + dk);
+		this.size = size;
+		NUMBER_OF_BOWSER_CARS = bowser;
+		NUMBER_OF_DONKEYKONG_CARS = dk;
 		FastCar playerCar = new FastCar(size);
 		this.player = new Player(playerCar);
 		this.player.setup();

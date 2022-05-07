@@ -36,8 +36,9 @@ public class BumpersApplication extends Application {
 	public void start(Stage primaryStage) {
 		// the tool bar object with start and stop buttons
 		GameToolBar toolBar = new GameToolBar();
-		GameBoardUI gameBoardUI = new GameBoardUI(toolBar, false);
+		GameBoardUI gameBoardUI = new GameBoardUI(toolBar, false, 1, 1);
 		toolBar.initializeActions(gameBoardUI);
+		toolBar.getEasyMode().fire();
 
 
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Have you read the instructions on the provided readme File?", ButtonType.YES,
