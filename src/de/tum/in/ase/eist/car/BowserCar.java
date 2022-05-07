@@ -4,6 +4,7 @@ import de.tum.in.ase.eist.Dimension2D;
 
 public class BowserCar extends Car {
 
+
     private static final String BOWSER_CAR_IMAGE_FILER0 = "BowserCarR0.png";
     private static final String BOWSER_CAR_IMAGE_FILER1 = "BowserCarR1.png";
     private static final String BOWSER_CAR_IMAGE_FILER2 = "BowserCarR2.png";

@@ -44,9 +44,9 @@ public abstract class Car {
 
 	private Dimension2D size = new Dimension2D(DEFAULT_CAR_WIDTH, DEFAULT_CAR_HEIGHT);
 
-//	public void setSize(int a, int b) {
-//		this.size = new Dimension2D(a, b);
-//	}
+	public void setSize(int a, int b) {
+		this.size = new Dimension2D(a, b);
+	}
 
 	/**
 	 * Constructor, taking the maximum coordinates of the game board. Each car gets
