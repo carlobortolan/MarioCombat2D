@@ -136,10 +136,11 @@ public class GameBoard {
 //		}
 
 		for (int i = 0; i < NUMBER_OF_DONKEYKONG_CARS; i++) {
-			this.cars.add(new DonkeyKongCar(this.size));
+//			this.cars.add(new DonkeyKongCar(this.size));
 		}	for (int i = 0; i < NUMBER_OF_BOWSER_CARS; i++) {
 			this.cars.add(new BowserCar(this.size));
-		}}
+		}
+		}
 	}
 
 	public Dimension2D getSize() {
