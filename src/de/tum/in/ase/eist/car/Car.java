@@ -13,6 +13,8 @@ public abstract class Car {
 	protected static final int MAX_ANGLE = 360;
 	protected static final int HALF_ANGLE = MAX_ANGLE / 2;
 
+	//TODO Change @artemisMode to false to play the game with correct proportions
+	private static final boolean artemisMode = true;
 //	protected static final int DEFAULT_CAR_WIDTH = 150;
 	protected static final int DEFAULT_CAR_WIDTH = 50;
 //	protected static final int DEFAULT_CAR_HEIGHT = 150;
@@ -233,8 +235,9 @@ public abstract class Car {
 	}
 
 	public Dimension2D getSize() {
-//		return this.size;
+		if(!artemisMode)
 		return new Dimension2D(150, 150);
+		return this.size;
 	}
 
 	public void setSize(Dimension2D size) {
