@@ -233,7 +233,8 @@ public abstract class Car {
 	}
 
 	public Dimension2D getSize() {
-		return this.size;
+//		return this.size;
+		return new Dimension2D(150, 150);
 	}
 
 	public void setSize(Dimension2D size) {
