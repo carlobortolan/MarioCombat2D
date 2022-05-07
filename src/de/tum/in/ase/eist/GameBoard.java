@@ -30,9 +30,9 @@ public class GameBoard {
 	//private static final int NUMBER_OF_TESLA_CARS = 0;
 //	private static final int NUMBER_OF_MARIO_CARS = 1;
 //	private static final int NUMBER_OF_BOWSER_CARS = 1;
-	private static int NUMBER_OF_BOWSER_CARS = 0;
+	private static int NUMBER_OF_BOWSER_CARS = 1;
 //	private static final int NUMBER_OF_DONKEYKONG_CARS =1;
-	private static int NUMBER_OF_DONKEYKONG_CARS =0;
+	private static int NUMBER_OF_DONKEYKONG_CARS =1;
 
 	public boolean isMULTIPLAYER_ON() {
 		return MULTIPLAYER_ON;
