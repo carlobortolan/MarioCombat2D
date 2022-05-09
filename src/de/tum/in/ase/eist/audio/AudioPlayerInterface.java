@@ -31,5 +31,6 @@ public interface AudioPlayerInterface {
 
 	void playKOSound();
 	void playCheatSound();
+	void playWinSound();
 
 }

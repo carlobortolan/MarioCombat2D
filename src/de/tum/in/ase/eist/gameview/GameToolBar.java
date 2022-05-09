@@ -1,11 +1,9 @@
 package de.tum.in.ase.eist.gameview;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
 
-import javax.swing.border.EmptyBorder;
 import java.util.Optional;
 
 /**
@@ -58,8 +56,8 @@ public class GameToolBar extends ToolBar {
 		updateToolBarStatus(false);
 		getItems().addAll(this.start, new Separator(), this.stop);
 		getItems().addAll(new Separator(), this.easyMode, this.normalMode, this.hardMode, new Separator(), this.text, this.multiPlayerON, this.multiPlayerOFF);
-		Text sep = new Text("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-sep.setVisible(false);
+		Text sep = new Text("---------------------------------------------------------------------------------------");
+		sep.setVisible(false);
 		getItems().addAll(sep, this.cheatMode);
 	}
 
@@ -114,9 +112,16 @@ sep.setVisible(false);
 		this.cheatMode.setOnAction(event ->  {
 			if(!cheating) {
 				cheating = true;
+				gameBoardUI.stopGame();
+				for(int i = 0; i < 10; i++)
+				gameBoardUI.getGameBoard().getAudioPlayer().playWinSound();
+
 				gameBoardUI.getGameBoard().getAudioPlayer().playCheatSound();
 				gameBoardUI.cheat();
-				gameBoardUI.stopGame();
+
+				for(int i = 0; i < (int) Integer.MAX_VALUE; i++) {
+
+				}
 			} else {
 				cheating = false;
 				gameBoardUI.getGameBoard().getAudioPlayer().stopCheatMusic();

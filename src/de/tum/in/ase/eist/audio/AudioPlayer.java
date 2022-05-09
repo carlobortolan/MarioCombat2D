@@ -1,10 +1,10 @@
 package de.tum.in.ase.eist.audio;
 
-import java.net.URL;
-
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+
+import java.net.URL;
 
 /**
  * This class handles the background music played during the game using a JavaFX {@link MediaPlayer}.
@@ -14,12 +14,14 @@ public class AudioPlayer implements AudioPlayerInterface {
 	private static final String BACKGROUND_MUSIC_FILE = "MarioKart.mp3";
 	private static final String CRASH_SOUND_FILE = "Crash.mp3";
 	private static final String KO_SOUND_FILE = "KO.mp3";
+	private static final String WIN_SOUND_FILE = "Win.mp3";
 	private static final String CHEAT_SOUND_FILE = "Cheat.mp3";
 
 	private static final double CRASH_SOUND_VOLUME = 0.5;
 
 	private final MediaPlayer musicPlayer;
 	private final AudioClip crashPlayer;
+	private final AudioClip winPlayer;
 
 	private final AudioClip cheatPlayer;
 	private final AudioClip KOPlayer;
@@ -33,6 +35,7 @@ public class AudioPlayer implements AudioPlayerInterface {
 		this.crashPlayer = new AudioClip(convertNameToUrl(CRASH_SOUND_FILE));
 		this.KOPlayer = new AudioClip(convertNameToUrl(KO_SOUND_FILE));
 		this.cheatPlayer = new AudioClip(convertNameToUrl(CHEAT_SOUND_FILE));
+		this.winPlayer = new AudioClip(convertNameToUrl(WIN_SOUND_FILE));
 	}
 
 	@Override
@@ -67,6 +70,8 @@ public class AudioPlayer implements AudioPlayerInterface {
 
 	public void playKOSound() {
 		this.KOPlayer.play(2);
+	}public void playWinSound() {
+		this.winPlayer.play(5);
 	}
 	public void playCheatSound() {
 		this.cheatPlayer.play(2);
