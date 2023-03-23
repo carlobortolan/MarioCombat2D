@@ -1,4 +1,7 @@
-short instruction for my "Bumpers" Game:
+> __NOTE__: _This repository contains undocumented and untested code. The only purpose of this repository is to document my progress learning Java._
+
+
+# Short instructions for my "Bumpers" Game:
 
 CONTORLS
 -
@@ -30,7 +33,7 @@ GAME MODES:
     The Multiplayer Mode supports two players on the same device and features a 1vs1 game.
     Initially I wanted to have the second player use keyboard controls, but due to technical issues all game controls are 
     limited to the mouse.
-COPYRIGHT
+SOURCES
 - 
     The used graphics, images and sound effects are from the following sources:
         - https://www.youtube.com/watch?v=-ytaJRn0RSU
@@ -42,3 +45,4 @@ COPYRIGHT
         - https://www.pngwing.com/de/free-png-nezyf/download
         - https://imgbin.com/png/PKxXzUeL/minecraft-video-game-health-png
         - https://www.kindpng.com/imgv/ihxTJib_street-fighter-ko-png-street-fighter-ko-transparent/
+    This project was made as part of the EiST (Einführung in die Softwaretechnik) course. The basic template used for this game has been provided by the course-supervisors.
